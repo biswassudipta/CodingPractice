@@ -32,10 +32,10 @@ public class LambertFunction {
         BigDecimal count = BigDecimal.valueOf(0);
 
         while (delta.compareTo(EPSILON) > 0) {
-            // e^x calculation using double for simplicity, or replace with a Taylor series for higher precision
+
             BigDecimal expX = BigDecimal.valueOf(Math.exp(approxSolution.doubleValue()));
 
-            // functionExpression = approxSolution * expX - functionValue
+
             BigDecimal nextApproxSolution = getNextApproxSolution(functionValue, approxSolution, expX);
 
             delta = nextApproxSolution.subtract(approxSolution, MC).abs();
@@ -51,10 +51,10 @@ public class LambertFunction {
     private static BigDecimal getNextApproxSolution(BigDecimal functionValue, BigDecimal approxSolution, BigDecimal expX) {
         BigDecimal functionExpression = approxSolution.multiply(expX, MC).subtract(functionValue, MC);
 
-        // derivativeOfFunctionExpression = approxSolution * expX + expX
+
         BigDecimal derivativeOfFunctionExpression = approxSolution.multiply(expX, MC).add(expX, MC);
 
-        // nextApproxSolution = approxSolution - (functionExpression / derivativeOfFunctionExpression)
+
         return approxSolution.subtract(functionExpression.divide(derivativeOfFunctionExpression, MC), MC);
     }
 

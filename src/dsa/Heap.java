@@ -91,10 +91,8 @@ public class Heap {
         if (size == 0) {
             throw new IllegalArgumentException("No element present");
         }
-        int height = 31 - Integer.numberOfLeadingZeros(size);
 
-        int heapifyStartIndex = ((int) Math.pow(2, height) - 1) - 1;
-
+        int heapifyStartIndex = (size / 2) - 1;
         for (; heapifyStartIndex >= 0; heapifyStartIndex--) {
             topToDownTraversal(heapifyStartIndex);
 
