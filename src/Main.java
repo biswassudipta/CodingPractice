@@ -7,7 +7,6 @@ static void addEdge(List<List<int[]>> adj, int u, int v, int w) {
     adj.get(v).add(new int[]{u, w});
 }
 
-static int N = 8;
 static int INF = Integer.MAX_VALUE;
 
 void main() {
