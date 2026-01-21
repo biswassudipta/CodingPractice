@@ -1,5 +1,6 @@
 import dsa.*;
 
+import static dsa.NodeWithRandomPointer.printListWithRandomPointer;
 import static java.lang.IO.println;
 
 static void addEdge(List<List<int[]>> adj, int u, int v, int w) {
@@ -15,11 +16,11 @@ void main() {
     head.next.next = new Node(3);
     head.next.next.next = new Node(4);
     head.next.next.next.next = new Node(5);
-    Node lastNode = ReverseLinkedList.reverseLinkedIstIteratively(head);
+    Node lastNode = LinkedList.reverseLinkedIstIteratively(head);
     Node.printList(lastNode);
 
     println("\n ---------------- \n");
-    Node.printList(ReverseLinkedList.reverseLinkedIstIRecursively(lastNode));
+    Node.printList(LinkedList.reverseLinkedIstIRecursively(lastNode));
 
     println("\n ---------------- \n");
 
@@ -29,7 +30,7 @@ void main() {
     doubleHead.next.next = new DoubleNode(3);
     doubleHead.next.next.prev = doubleHead.next;
 
-    DoubleNode.printList(ReverseLinkedList.reverseDoublyLinkedList(doubleHead));
+    DoubleNode.printList(LinkedList.reverseDoublyLinkedList(doubleHead));
 
 
     println("\n ---------------- \n");
@@ -161,6 +162,26 @@ void main() {
         }
         System.out.println();
     }
+
+    NodeWithRandomPointer headNodeWithRandomPointer = new NodeWithRandomPointer(1);
+    headNodeWithRandomPointer.next = new NodeWithRandomPointer(2);
+    headNodeWithRandomPointer.next.next = new NodeWithRandomPointer(3);
+    headNodeWithRandomPointer.next.next.next = new NodeWithRandomPointer(4);
+    headNodeWithRandomPointer.next.next.next.next = new NodeWithRandomPointer(5);
+    headNodeWithRandomPointer.random = headNodeWithRandomPointer.next.next;
+    headNodeWithRandomPointer.next.random = headNodeWithRandomPointer;
+    headNodeWithRandomPointer.next.next.random = headNodeWithRandomPointer.next.next.next.next;
+    headNodeWithRandomPointer.next.next.next.random = headNodeWithRandomPointer.next.next;
+    headNodeWithRandomPointer.next.next.next.next.random = headNodeWithRandomPointer.next;
+
+    // Print the original list
+    System.out.println("Original linked list:");
+    printListWithRandomPointer(headNodeWithRandomPointer);
+
+    NodeWithRandomPointer clonedList =LinkedList.clone(headNodeWithRandomPointer);
+
+    System.out.println("Cloned linked list:");
+    printListWithRandomPointer(clonedList);
 }
 
 
