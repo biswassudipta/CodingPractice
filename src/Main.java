@@ -135,17 +135,32 @@ void main() {
 
 
     int[][] multiStageGraph = new int[][]{
-            {INF, 1, 2, 5, INF, INF, INF, INF},
-            {INF, INF, INF, INF, 4, 11, INF, INF},
-            {INF, INF, INF, INF, 9, 5, 16, INF},
-            {INF, INF, INF, INF, INF, INF, 2, INF},
-            {INF, INF, INF, INF, INF, INF, INF, 18},
-            {INF, INF, INF, INF, INF, INF, INF, 13},
-            {INF, INF, INF, INF, INF, INF, INF, 2},
-            {INF, INF, INF, INF, INF, INF, INF, INF}
+            {0, 1, 2, 5, INF, INF, INF, INF},
+            {INF, 0, INF, INF, 4, 11, INF, INF},
+            {INF, INF, 0, INF, 9, 5, 16, INF},
+            {INF, INF, INF, 0, INF, INF, 2, INF},
+            {INF, INF, INF, INF, 0, INF, INF, 18},
+            {INF, INF, INF, INF, INF, 0, INF, 13},
+            {INF, INF, INF, INF, INF, INF, 0, 2},
+            {INF, INF, INF, INF, INF, INF, INF, 0}
     };
     MultiStageGraphShortestPath multiStageGraphShortestPath = new MultiStageGraphShortestPath();
     println(multiStageGraphShortestPath.findShortestPath(multiStageGraph));
+
+    int[][] floydWarshallGraph = {
+            {0, 4, INF, 5, INF},
+            {INF, 0, 1, INF, 6},
+            {2, INF, 0, 3, INF},
+            {INF, INF, 1, 0, 2},
+            {1, INF, INF, 4, 0}};
+    FloydWarshallShortestPath floydWarshallShortestPath = new FloydWarshallShortestPath();
+    int[][] dist = floydWarshallShortestPath.findShortestPathPairs(floydWarshallGraph);
+    for (int[] ints : dist) {
+        for (int j = 0; j < dist.length; j++) {
+            System.out.print(ints[j] + " ");
+        }
+        System.out.println();
+    }
 }
 
 
