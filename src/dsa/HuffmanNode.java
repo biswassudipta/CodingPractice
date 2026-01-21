@@ -10,8 +10,8 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
         this.frequency = frequency;
     }
 
-    public HuffmanNode(char data, int frequency, HuffmanNode right, HuffmanNode left) {
-        this.data = data;
+    public HuffmanNode(int frequency, HuffmanNode right, HuffmanNode left) {
+        this.data = '\0';
         this.frequency = frequency;
         this.right = right;
         this.left = left;

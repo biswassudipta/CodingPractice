@@ -46,7 +46,7 @@ public class HuffmanCodeImpl implements HuffmanCode {
             HuffmanNode left = minHeap.poll();
             HuffmanNode right = minHeap.poll();
             assert right != null;
-            minHeap.add(new HuffmanNode('\0', left.getFrequency() + right.getFrequency(), left, right));
+            minHeap.add(new HuffmanNode(left.getFrequency() + right.getFrequency(), left, right));
         }
         HuffmanNode root = minHeap.poll();
         generateCode(root, "");
