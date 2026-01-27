@@ -128,8 +128,8 @@ void main() {
 
     List<Integer> result = graph.findShortestPathDijkstra(src, V, adj);
     for (int d : result)
-        System.out.print(d + " ");
-    System.out.println();
+        IO.print(d + " ");
+    println();
 
     println(graph.findMSTCostPrims(V, adj));
     println(graph.findMSTCostKruskal(V, adj));
@@ -158,9 +158,9 @@ void main() {
     int[][] dist = floydWarshallShortestPath.findShortestPathPairs(floydWarshallGraph);
     for (int[] ints : dist) {
         for (int j = 0; j < dist.length; j++) {
-            System.out.print(ints[j] + " ");
+            IO.print(ints[j] + " ");
         }
-        System.out.println();
+        println();
     }
 
     NodeWithRandomPointer headNodeWithRandomPointer = new NodeWithRandomPointer(1);
@@ -175,13 +175,48 @@ void main() {
     headNodeWithRandomPointer.next.next.next.next.random = headNodeWithRandomPointer.next;
 
     // Print the original list
-    System.out.println("Original linked list:");
+    println("Original linked list:");
     printListWithRandomPointer(headNodeWithRandomPointer);
 
-    NodeWithRandomPointer clonedList =LinkedList.clone(headNodeWithRandomPointer);
+    NodeWithRandomPointer clonedList = LinkedList.clone(headNodeWithRandomPointer);
 
-    System.out.println("Cloned linked list:");
+    println("Cloned linked list:");
     printListWithRandomPointer(clonedList);
+
+    MatrixChainMultiplication matrixChainMultiplication = new MatrixChainMultiplication();
+    int[] arr = new int[]{5, 4, 6, 2, 7};
+    int res = matrixChainMultiplication.findMinimumMultiplication(arr);
+    println("Minimum no of multiplication" + res + "\n");
+    println("\n ---------------- \n");
+
+
+    // Edge list representation: {source, destination, weight}
+    int[][] edges = new int[][]{
+            {1, 3, 2},
+            {4, 3, -1},
+            {2, 4, 1},
+            {1, 2, 1},
+            {0, 1, 5}
+    };
+
+    // Source vertex for Bellman-Ford algorithm
+    int source = 0;
+    BellmanFordSingleSourceShortestPath bellmanFordSingleSourceShortestPath = new BellmanFordSingleSourceShortestPath();
+    // Run Bellman-Ford algorithm from the source vertex
+
+    int vertexNo = 5;
+    for (int distance : bellmanFordSingleSourceShortestPath.findBellmanFordSingleSourceShortestPaths(vertexNo, edges, source))
+        System.out.print(distance + " ");
+
+    println("\n ---------------- \n");
+
+    ZeroOneKnapsack zeroOneKnapsack = new ZeroOneKnapsack();
+    int[] val = {1, 2, 5,6};
+    int[] wt = {2, 3, 4,5};
+    int W = 8;
+    int maxProfit=zeroOneKnapsack.findMaxProfit(val,wt,W);
+    println("Maximum profit: " + maxProfit);
+    println("\n ---------------- \n");
 }
 
 
