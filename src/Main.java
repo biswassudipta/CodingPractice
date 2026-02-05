@@ -135,25 +135,11 @@ void main() {
     println(graph.findMSTCostKruskal(V, adj));
 
 
-    int[][] multiStageGraph = new int[][]{
-            {0, 1, 2, 5, INF, INF, INF, INF},
-            {INF, 0, INF, INF, 4, 11, INF, INF},
-            {INF, INF, 0, INF, 9, 5, 16, INF},
-            {INF, INF, INF, 0, INF, INF, 2, INF},
-            {INF, INF, INF, INF, 0, INF, INF, 18},
-            {INF, INF, INF, INF, INF, 0, INF, 13},
-            {INF, INF, INF, INF, INF, INF, 0, 2},
-            {INF, INF, INF, INF, INF, INF, INF, 0}
-    };
+    int[][] multiStageGraph = new int[][]{{0, 1, 2, 5, INF, INF, INF, INF}, {INF, 0, INF, INF, 4, 11, INF, INF}, {INF, INF, 0, INF, 9, 5, 16, INF}, {INF, INF, INF, 0, INF, INF, 2, INF}, {INF, INF, INF, INF, 0, INF, INF, 18}, {INF, INF, INF, INF, INF, 0, INF, 13}, {INF, INF, INF, INF, INF, INF, 0, 2}, {INF, INF, INF, INF, INF, INF, INF, 0}};
     MultiStageGraphShortestPath multiStageGraphShortestPath = new MultiStageGraphShortestPath();
     println(multiStageGraphShortestPath.findShortestPath(multiStageGraph));
 
-    int[][] floydWarshallGraph = {
-            {0, 4, INF, 5, INF},
-            {INF, 0, 1, INF, 6},
-            {2, INF, 0, 3, INF},
-            {INF, INF, 1, 0, 2},
-            {1, INF, INF, 4, 0}};
+    int[][] floydWarshallGraph = {{0, 4, INF, 5, INF}, {INF, 0, 1, INF, 6}, {2, INF, 0, 3, INF}, {INF, INF, 1, 0, 2}, {1, INF, INF, 4, 0}};
     FloydWarshallShortestPath floydWarshallShortestPath = new FloydWarshallShortestPath();
     int[][] dist = floydWarshallShortestPath.findShortestPathPairs(floydWarshallGraph);
     for (int[] ints : dist) {
@@ -191,13 +177,7 @@ void main() {
 
 
     // Edge list representation: {source, destination, weight}
-    int[][] edges = new int[][]{
-            {1, 3, 2},
-            {4, 3, -1},
-            {2, 4, 1},
-            {1, 2, 1},
-            {0, 1, 5}
-    };
+    int[][] edges = new int[][]{{1, 3, 2}, {4, 3, -1}, {2, 4, 1}, {1, 2, 1}, {0, 1, 5}};
 
     // Source vertex for Bellman-Ford algorithm
     int source = 0;
@@ -211,11 +191,22 @@ void main() {
     println("\n ---------------- \n");
 
     ZeroOneKnapsack zeroOneKnapsack = new ZeroOneKnapsack();
-    int[] val = {1, 2, 5,6};
-    int[] wt = {2, 3, 4,5};
+    int[] val = {1, 2, 5, 6};
+    int[] wt = {2, 3, 4, 5};
     int W = 8;
-    int maxProfit=zeroOneKnapsack.findMaxProfit(val,wt,W);
+    int maxProfit = zeroOneKnapsack.findMaxProfit(val, wt, W);
     println("Maximum profit: " + maxProfit);
+    println("\n ---------------- \n");
+
+    int[][] travel = {
+            {0, 10, 15, 20},
+            {10, 0, 35, 25},
+            {15, 35, 0, 30},
+            {20, 25, 30, 0}
+    };
+    TravellingSalesman travellingSalesman = new TravellingSalesman();
+
+    println("Minimum distance: " + travellingSalesman.findMinimumDistance(1, travel));
     println("\n ---------------- \n");
 }
 
