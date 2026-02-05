@@ -7,7 +7,24 @@ static void addEdge(List<List<int[]>> adj, int u, int v, int w) {
     adj.get(u).add(new int[]{v, w});
     adj.get(v).add(new int[]{u, w});
 }
+public static int[][] generateTSPInput(int n) {
+    int[][] dist = new int[n][n];
+    Random random = new Random();
 
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            // Random distance between 10 and 1000
+            int distance = random.nextInt(991) + 10;
+
+            // Set both [i][j] and [j][i] because distance is usually symmetric
+            dist[i][j] = distance;
+            dist[j][i] = distance;
+        }
+        // dist[i][i] is always 0 (distance to self)
+        dist[i][i] = 0;
+    }
+    return dist;
+}
 static int INF = Integer.MAX_VALUE;
 
 void main() {
@@ -198,15 +215,9 @@ void main() {
     println("Maximum profit: " + maxProfit);
     println("\n ---------------- \n");
 
-    int[][] travel = {
-            {0, 10, 15, 20},
-            {10, 0, 35, 25},
-            {15, 35, 0, 30},
-            {20, 25, 30, 0}
-    };
     TravellingSalesman travellingSalesman = new TravellingSalesman();
 
-    println("Minimum distance: " + travellingSalesman.findMinimumDistance(1, travel));
+    println("Minimum distance: " + travellingSalesman.findMinimumDistance(0, generateTSPInput(22)));
     println("\n ---------------- \n");
 }
 
