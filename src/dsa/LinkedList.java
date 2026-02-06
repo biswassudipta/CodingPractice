@@ -64,11 +64,10 @@ public class LinkedList {
             current = current.next.next;
         }
         current = head;
-        NodeWithRandomPointer.printListWithRandomPointer(current);
         NodeWithRandomPointer clone = clonedCurrenHead;
         while (current.next.next != null) {
-            current.next = clone.next;
-            clone.next = current.next.next;
+            current.next = current.next.next;
+            clone.next = clone.next.next;
             current = current.next;
             clone = clone.next;
         }
