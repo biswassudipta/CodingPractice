@@ -217,8 +217,24 @@ void main() {
 
     TravellingSalesman travellingSalesman = new TravellingSalesman();
 
-    println("Minimum distance: " + travellingSalesman.findMinimumDistance(0, generateTSPInput(22)));
+    println("Minimum distance: " + travellingSalesman.findMinimumDistance(0, generateTSPInput(15)));
     println("\n ---------------- \n");
+
+    ListNode lst11= new ListNode(1);
+    ListNode lst12= new ListNode(2);
+    ListNode lst13= new ListNode(4);
+    lst11.next=lst12;
+    lst11.next.next=lst13;
+    ListNode lst21= new ListNode(1);
+    ListNode lst22= new ListNode(2);
+    ListNode lst23= new ListNode(3);
+    lst21.next=lst22;
+    lst21.next.next=lst23;
+
+   MergeLinkedLists mergeLinkedLists = new MergeLinkedLists();
+   ListNode.printList(mergeLinkedLists.mergeTwoLists(lst11, lst21));
+
+
 }
 
 
