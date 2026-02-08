@@ -7,6 +7,7 @@ static void addEdge(List<List<int[]>> adj, int u, int v, int w) {
     adj.get(u).add(new int[]{v, w});
     adj.get(v).add(new int[]{u, w});
 }
+
 public static int[][] generateTSPInput(int n) {
     int[][] dist = new int[n][n];
     Random random = new Random();
@@ -25,6 +26,7 @@ public static int[][] generateTSPInput(int n) {
     }
     return dist;
 }
+
 static int INF = Integer.MAX_VALUE;
 
 void main() {
@@ -152,11 +154,22 @@ void main() {
     println(graph.findMSTCostKruskal(V, adj));
 
 
-    int[][] multiStageGraph = new int[][]{{0, 1, 2, 5, INF, INF, INF, INF}, {INF, 0, INF, INF, 4, 11, INF, INF}, {INF, INF, 0, INF, 9, 5, 16, INF}, {INF, INF, INF, 0, INF, INF, 2, INF}, {INF, INF, INF, INF, 0, INF, INF, 18}, {INF, INF, INF, INF, INF, 0, INF, 13}, {INF, INF, INF, INF, INF, INF, 0, 2}, {INF, INF, INF, INF, INF, INF, INF, 0}};
+    int[][] multiStageGraph = new int[][]{{0, 1, 2, 5, INF, INF, INF, INF},
+            {INF, 0, INF, INF, 4, 11, INF, INF},
+            {INF, INF, 0, INF, 9, 5, 16, INF},
+            {INF, INF, INF, 0, INF, INF, 2, INF},
+            {INF, INF, INF, INF, 0, INF, INF, 18},
+            {INF, INF, INF, INF, INF, 0, INF, 13},
+            {INF, INF, INF, INF, INF, INF, 0, 2},
+            {INF, INF, INF, INF, INF, INF, INF, 0}};
     MultiStageGraphShortestPath multiStageGraphShortestPath = new MultiStageGraphShortestPath();
     println(multiStageGraphShortestPath.findShortestPath(multiStageGraph));
 
-    int[][] floydWarshallGraph = {{0, 4, INF, 5, INF}, {INF, 0, 1, INF, 6}, {2, INF, 0, 3, INF}, {INF, INF, 1, 0, 2}, {1, INF, INF, 4, 0}};
+    int[][] floydWarshallGraph = {{0, 4, INF, 5, INF},
+            {INF, 0, 1, INF, 6},
+            {2, INF, 0, 3, INF},
+            {INF, INF, 1, 0, 2},
+            {1, INF, INF, 4, 0}};
     FloydWarshallShortestPath floydWarshallShortestPath = new FloydWarshallShortestPath();
     int[][] dist = floydWarshallShortestPath.findShortestPathPairs(floydWarshallGraph);
     for (int[] ints : dist) {
@@ -194,7 +207,11 @@ void main() {
 
 
     // Edge list representation: {source, destination, weight}
-    int[][] edges = new int[][]{{1, 3, 2}, {4, 3, -1}, {2, 4, 1}, {1, 2, 1}, {0, 1, 5}};
+    int[][] edges = new int[][]{{1, 3, 2},
+            {4, 3, -1},
+            {2, 4, 1},
+            {1, 2, 1},
+            {0, 1, 5}};
 
     // Source vertex for Bellman-Ford algorithm
     int source = 0;
@@ -220,19 +237,26 @@ void main() {
     println("Minimum distance: " + travellingSalesman.findMinimumDistance(0, generateTSPInput(15)));
     println("\n ---------------- \n");
 
-    ListNode lst11= new ListNode(1);
-    ListNode lst12= new ListNode(2);
-    ListNode lst13= new ListNode(4);
-    lst11.next=lst12;
-    lst11.next.next=lst13;
-    ListNode lst21= new ListNode(1);
-    ListNode lst22= new ListNode(2);
-    ListNode lst23= new ListNode(3);
-    lst21.next=lst22;
-    lst21.next.next=lst23;
+    ListNode lst11 = new ListNode(1);
+    ListNode lst12 = new ListNode(2);
+    ListNode lst13 = new ListNode(4);
+    lst11.next = lst12;
+    lst11.next.next = lst13;
+    ListNode lst21 = new ListNode(1);
+    ListNode lst22 = new ListNode(2);
+    ListNode lst23 = new ListNode(3);
+    lst21.next = lst22;
+    lst21.next.next = lst23;
 
-   MergeLinkedLists mergeLinkedLists = new MergeLinkedLists();
-   ListNode.printList(mergeLinkedLists.mergeTwoLists(lst11, lst21));
+    MergeLinkedLists mergeLinkedLists = new MergeLinkedLists();
+    ListNode.printList(mergeLinkedLists.mergeTwoLists(lst11, lst21));
+    println("\n ---------------- \n");
+
+    ClimbingStairs climbingStairs = new ClimbingStairs();
+    int noOfStairCas= 9991;
+    climbingStairs.climbStairsUsingDP(noOfStairCas);
+    climbingStairs.climbStairsUsingCombinations(noOfStairCas);
+    climbingStairs.climbStairsUsingBruteForce(noOfStairCas);
 
 
 }
