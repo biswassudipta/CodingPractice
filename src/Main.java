@@ -253,16 +253,31 @@ void main() {
     println("\n ---------------- \n");
 
     ClimbingStairs climbingStairs = new ClimbingStairs();
-    int noOfStairCas= 9;
+    int noOfStairCas = 9;
     climbingStairs.climbStairsUsingDP(noOfStairCas);
     climbingStairs.climbStairsUsingCombinations(noOfStairCas);
     climbingStairs.climbStairsUsingBruteForce(noOfStairCas);
     println("\n ---------------- \n");
 
     BinaryAddition binaryAddition = new BinaryAddition();
-    String sum=binaryAddition.addBinary("11","1");
+    String sum = binaryAddition.addBinary("11", "1");
     println("sum of binary numbers: " + sum);
     println("\n ---------------- \n");
+
+
+    List<Integer> path1 = Arrays.asList(0, 1);
+    List<Integer> path2 = Arrays.asList(1, 2);
+    List<Integer> path3 = Arrays.asList(2, 0);
+    List<Integer> path4 = Arrays.asList(1, 3);
+
+    List<List<Integer>> paths = Arrays.asList(path1, path2, path3, path4);
+
+    CriticalPathTarjanAlgo criticalPathTarjanAlgo = new CriticalPathTarjanAlgo();
+    List<List<Integer>> criticalPaths = criticalPathTarjanAlgo.criticalConnections(4, paths);
+    for (List<Integer> path : criticalPaths) {
+        println("\n This is critical path from vertex: " + path.get(0) + " to vertex: " + path.get(1) + " \n");
+    }
+
 
 }
 
