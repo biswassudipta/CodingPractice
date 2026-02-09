@@ -277,7 +277,18 @@ void main() {
     for (List<Integer> path : criticalPaths) {
         println("\n This is critical path from vertex: " + path.get(0) + " to vertex: " + path.get(1) + " \n");
     }
+    SubsetBackTracking subsetBackTracking = new SubsetBackTracking();
 
+    List<List<Integer>> subsets= subsetBackTracking.subsets(new int[]{1,2,2});
+    println("all subsets: \n" + subsets);
+    println("\n ---------------- \n");
+    List<List<Integer>> subsetsWithDuplicates= subsetBackTracking.subsetsWithDuplicates(new int[]{1,2,1,2});
+    println("all subsets: \n" + subsetsWithDuplicates);
+    println("\n ---------------- \n");
+    PermutationBackTracking permutationBackTracking = new PermutationBackTracking();
+    List<List<Integer>> permutations= permutationBackTracking.permute(new int[]{1,2,3});
+    println("all permutations: \n" + permutations);
+    println("\n ---------------- \n");
 
 }
 
