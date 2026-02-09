@@ -253,11 +253,16 @@ void main() {
     println("\n ---------------- \n");
 
     ClimbingStairs climbingStairs = new ClimbingStairs();
-    int noOfStairCas= 9991;
+    int noOfStairCas= 9;
     climbingStairs.climbStairsUsingDP(noOfStairCas);
     climbingStairs.climbStairsUsingCombinations(noOfStairCas);
     climbingStairs.climbStairsUsingBruteForce(noOfStairCas);
+    println("\n ---------------- \n");
 
+    BinaryAddition binaryAddition = new BinaryAddition();
+    String sum=binaryAddition.addBinary("11","1");
+    println("sum of binary numbers: " + sum);
+    println("\n ---------------- \n");
 
 }
 
