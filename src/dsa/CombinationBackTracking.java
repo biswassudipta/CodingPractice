@@ -217,7 +217,7 @@ All the elements of nums are unique.
 
 
             subList.add(candidates[i]);
-            findCombinationSum4(candidates, 0,target, sum + candidates[i],subList,dp);
+            findCombinationSum4(candidates, i,target, sum + candidates[i],subList,dp);
             subList.removeLast();
         }
         dp[sum] = result - before;
