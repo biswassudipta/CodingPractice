@@ -279,35 +279,47 @@ void main() {
     }
     SubsetBackTracking subsetBackTracking = new SubsetBackTracking();
 
-    List<List<Integer>> subsets= subsetBackTracking.subsets(new int[]{1,2,2});
+    List<List<Integer>> subsets = subsetBackTracking.subsets(new int[]{1, 2, 2});
     println("all subsets: \n" + subsets);
     println("\n ---------------- \n");
-    List<List<Integer>> subsetsWithDuplicates= subsetBackTracking.subsetsWithDuplicates(new int[]{1,2,1,2});
+    List<List<Integer>> subsetsWithDuplicates = subsetBackTracking.subsetsWithDuplicates(new int[]{1, 2, 1, 2});
     println("all subsets: \n" + subsetsWithDuplicates);
     println("\n ---------------- \n");
     PermutationBackTracking permutationBackTracking = new PermutationBackTracking();
-    List<List<Integer>> permutations= permutationBackTracking.permute(new int[]{1,2,3});
+    List<List<Integer>> permutations = permutationBackTracking.permute(new int[]{1, 2, 3});
     println("all permutations: \n" + permutations);
     println("\n ---------------- \n");
-    List<List<Integer>> uniquePermutations= permutationBackTracking.permuteUnique(new int[]{1,2,2});
+    List<List<Integer>> uniquePermutations = permutationBackTracking.permuteUnique(new int[]{1, 2, 2});
     println("all unique permutations: \n" + uniquePermutations);
     println("\n ---------------- \n");
     CombinationBackTracking combinationBackTracking = new CombinationBackTracking();
-    List<List<Integer>> combinationSum1= combinationBackTracking.combinationSum(new int[]{2,3,6,7},7);
+    List<List<Integer>> combinationSum1 = combinationBackTracking.combinationSum(new int[]{2, 3, 6, 7}, 7);
     println("all combinations selecting one  element more than once: \n" + combinationSum1);
     println("\n ---------------- \n");
 
-    List<List<Integer>> combinationSum2= combinationBackTracking.combinationSum2(new int[]{10,1,2,7,6,1,5},8);
+    List<List<Integer>> combinationSum2 = combinationBackTracking.combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
     println("all combinations selecting one element only once: \n" + combinationSum2);
-    int k=3;
-    int n=7;
-    List<List<Integer>> combinationSum3= combinationBackTracking.combinationSum3(k,n);
-    println("all combinations selecting "+k+" element/elements only once form 1-9 totalling sum: "+n+" \n" + combinationSum3);
+    int k = 3;
+    int n = 7;
+    List<List<Integer>> combinationSum3 = combinationBackTracking.combinationSum3(k, n);
+    println("all combinations selecting " + k + " element/elements only once form 1-9 totalling sum: " + n + " \n" + combinationSum3);
     println("\n ---------------- \n");
 
 
-    int  combinaionSum4= combinationBackTracking.combinationSum4(new int[]{1,2,3},4);
+    int combinaionSum4 = combinationBackTracking.combinationSum4(new int[]{1, 2, 3}, 4);
     println("total combinations \n" + combinaionSum4);
+    println("\n ---------------- \n");
+
+    PalindromePartitioning palidromePartioning = new PalindromePartitioning();
+    List<List<String>> setOfAllPalindromes = palidromePartioning.partition("aab");
+    println("total palindromes \n" + setOfAllPalindromes);
+    println("\n ---------------- \n");
+
+    int[][] intervals = new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10},{12,16}};
+    int [] newInterval=new int[]{4,8};
+    InsertInterval insertInterval = new InsertInterval();
+    int[][] newIntervals=insertInterval.insert(intervals, newInterval);
+    println("new set of intervals \n" + Arrays.deepToString(newIntervals));
     println("\n ---------------- \n");
 
 
