@@ -10,6 +10,8 @@ public class StringMatcher {
 
     public List<Integer> findMatchesKnuthMorris(String text, String pattern) {
         List<Integer> result = new ArrayList<>();
+        if (text == null || pattern == null) return result;
+        if (pattern.isEmpty() || pattern.length() > text.length()) return result;
         int[] lps = lps(pattern);
         int i = 0, j = 0;
         while (i < text.length()) {
