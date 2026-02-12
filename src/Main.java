@@ -322,6 +322,18 @@ void main() {
     println("new set of intervals \n" + Arrays.deepToString(newIntervals));
     println("\n ---------------- \n");
 
+    String txt = "aabaacaadaabaaba";
+    String pat = "aaba";
+    StringMatcher matcher = new StringMatcher();
+    List<Integer> matchesKMP=matcher.findMatchesKnuthMorris(txt, pat);
+
+    List<Integer> matchesRK=matcher.findMatchesRabinKarp(txt, pat);
+
+    println("match for pattern over text using Knuth-Morris starts at this/these index/indices..:"+matchesKMP+"\n");
+    println("\n ---------------- \n");
+    println("match for pattern over text using Rabin-Karp starts at this/these index/indices..:"+matchesRK+"\n");
+    println("\n ---------------- \n");
+
 
 
 }
