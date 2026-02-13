@@ -36,24 +36,24 @@ public class TreePrinter {
 
             printWhitespaces(betweenSpaces);
         }
-        System.out.println("");
+        System.out.println();
 
         for (int i = 1; i <= edgeLines; i++) {
-            for (int j = 0; j < nodes.size(); j++) {
+            for (AVLTreeNode node : nodes) {
                 printWhitespaces(firstSpaces - i);
-                if (nodes.get(j) == null) {
+                if (node == null) {
                     printWhitespaces(edgeLines + edgeLines + i + 1);
                     continue;
                 }
 
-                if (nodes.get(j).left != null)
+                if (node.left != null)
                     System.out.print("/");
                 else
                     printWhitespaces(1);
 
                 printWhitespaces(i + i - 1);
 
-                if (nodes.get(j).right != null)
+                if (node.right != null)
                     System.out.print("\\");
                 else
                     printWhitespaces(1);
@@ -61,7 +61,7 @@ public class TreePrinter {
                 printWhitespaces(edgeLines + edgeLines - i);
             }
 
-            System.out.println("");
+            System.out.println();
         }
 
         printNodeInternal(newNodes, level + 1, maxLevel);
