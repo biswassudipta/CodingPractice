@@ -334,6 +334,29 @@ void main() {
     println("match for pattern over text using Rabin-Karp starts at this/these index/indices..:"+matchesRK+"\n");
     println("\n ---------------- \n");
 
+    AVLTreeNode  root= new AVLTreeNode(10);
+    AVLTreeImplementation avlTreeImplementation = new AVLTreeImplementation();
+
+
+    root = avlTreeImplementation.insert(root, 10);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+    root = avlTreeImplementation.insert(root, 20);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+    root = avlTreeImplementation.insert(root, 30);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+    root = avlTreeImplementation.insert(root, 40);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+    root = avlTreeImplementation.insert(root, 50);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+    root = avlTreeImplementation.insert(root, 25);
+    TreePrinter.print(root);
+    println("\n ---------------- \n");
+
 
 
 }
