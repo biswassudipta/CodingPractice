@@ -15,6 +15,8 @@ public class AVLTreeImplementation {
     private AVLTreeNode rightRotate(AVLTreeNode y) {
         AVLTreeNode x = y.left;
         AVLTreeNode T2 = x.right;
+
+        //noinspection SuspiciousNameCombination
         x.right = y;
         y.left = T2;
 
@@ -24,6 +26,7 @@ public class AVLTreeImplementation {
     }
 
     private AVLTreeNode leftRotate(AVLTreeNode x) {
+        //noinspection SuspiciousNameCombination
         AVLTreeNode y = x.right;
         AVLTreeNode T2 = y.left;
 
@@ -32,6 +35,8 @@ public class AVLTreeImplementation {
 
         x.height = max(height(x.left), height(x.right)) + 1;
         y.height = max(height(y.left), height(y.right)) + 1;
+
+        //noinspection SuspiciousNameCombination
         return y;
     }
 
@@ -57,6 +62,7 @@ public class AVLTreeImplementation {
         }
 
         if (balance < -1 && key < node.right.key) {
+            //noinspection SuspiciousNameCombination
             node.right = rightRotate(node.right);
             return leftRotate(node);
         }
