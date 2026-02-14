@@ -1,6 +1,6 @@
 package dsa;
 
-public class LinkedList {
+public class LinkedListImpl {
 
 
     public static Node reverseLinkedIstIteratively(Node head) {

@@ -35,11 +35,11 @@ void main() {
     head.next.next = new Node(3);
     head.next.next.next = new Node(4);
     head.next.next.next.next = new Node(5);
-    Node lastNode = LinkedList.reverseLinkedIstIteratively(head);
+    Node lastNode = LinkedListImpl.reverseLinkedIstIteratively(head);
     Node.printList(lastNode);
 
     println("\n ---------------- \n");
-    Node.printList(LinkedList.reverseLinkedIstIRecursively(lastNode));
+    Node.printList(LinkedListImpl.reverseLinkedIstIRecursively(lastNode));
 
     println("\n ---------------- \n");
 
@@ -49,7 +49,7 @@ void main() {
     doubleHead.next.next = new DoubleNode(3);
     doubleHead.next.next.prev = doubleHead.next;
 
-    DoubleNode.printList(LinkedList.reverseDoublyLinkedList(doubleHead));
+    DoubleNode.printList(LinkedListImpl.reverseDoublyLinkedList(doubleHead));
 
 
     println("\n ---------------- \n");
@@ -194,7 +194,7 @@ void main() {
     println("Original linked list:");
     printListWithRandomPointer(headNodeWithRandomPointer);
 
-    NodeWithRandomPointer clonedList = LinkedList.clone(headNodeWithRandomPointer);
+    NodeWithRandomPointer clonedList = LinkedListImpl.clone(headNodeWithRandomPointer);
 
     println("Cloned linked list:");
     printListWithRandomPointer(clonedList);
@@ -357,6 +357,29 @@ void main() {
     TreePrinter.print(root);
     println("\n ---------------- \n");
 
+
+    LongestSubstring longestSubstring = new LongestSubstring();
+    String sample="abcabcbb";
+    int len=longestSubstring.lengthOfLongestSubstringUsingBackTracking(sample);
+    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
+    len=longestSubstring.lengthOfLongestSubstring(sample);
+    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
+    println("\n ---------------- \n");
+
+    len=longestSubstring.lengthOfLongestSubstringSlidingWindow(sample);
+    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
+    println("\n ---------------- \n");
+
+    TreeBuilder builder = new TreeBuilder();
+
+    // Note: Use Integer[] instead of int[] to support nulls
+    Integer[] input = {3, 9, 20, null, null, 15, 7};
+
+    TreeNode treeNode = builder.buildTree(input);
+    LevelOrder levelOrder = new LevelOrder();
+    List<List<Integer>> levelOrderTraversalPath=levelOrder.levelOrder(treeNode);
+    println("\nlevel order travsersal of the tree:"+levelOrderTraversalPath+"\n");
+    println("\n ---------------- \n");
 
 
 }
