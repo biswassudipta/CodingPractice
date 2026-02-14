@@ -1,5 +1,6 @@
 import dsa.*;
 
+import static dsa.GraphPrinter.printGraph;
 import static dsa.NodeWithRandomPointer.printListWithRandomPointer;
 import static java.lang.IO.println;
 
@@ -315,26 +316,26 @@ void main() {
     println("total palindromes \n" + setOfAllPalindromes);
     println("\n ---------------- \n");
 
-    int[][] intervals = new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10},{12,16}};
-    int [] newInterval=new int[]{4,8};
+    int[][] intervals = new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+    int[] newInterval = new int[]{4, 8};
     InsertInterval insertInterval = new InsertInterval();
-    int[][] newIntervals=insertInterval.insert(intervals, newInterval);
+    int[][] newIntervals = insertInterval.insert(intervals, newInterval);
     println("new set of intervals \n" + Arrays.deepToString(newIntervals));
     println("\n ---------------- \n");
 
     String txt = "aabaacaadaabaaba";
     String pat = "aaba";
     StringMatcher matcher = new StringMatcher();
-    List<Integer> matchesKMP=matcher.findMatchesKnuthMorris(txt, pat);
+    List<Integer> matchesKMP = matcher.findMatchesKnuthMorris(txt, pat);
 
-    List<Integer> matchesRK=matcher.findMatchesRabinKarp(txt, pat);
+    List<Integer> matchesRK = matcher.findMatchesRabinKarp(txt, pat);
 
-    println("match for pattern over text using Knuth-Morris starts at this/these index/indices..:"+matchesKMP+"\n");
+    println("match for pattern over text using Knuth-Morris starts at this/these index/indices..:" + matchesKMP + "\n");
     println("\n ---------------- \n");
-    println("match for pattern over text using Rabin-Karp starts at this/these index/indices..:"+matchesRK+"\n");
+    println("match for pattern over text using Rabin-Karp starts at this/these index/indices..:" + matchesRK + "\n");
     println("\n ---------------- \n");
 
-    AVLTreeNode  root= new AVLTreeNode(10);
+    AVLTreeNode root = new AVLTreeNode(10);
     AVLTreeImplementation avlTreeImplementation = new AVLTreeImplementation();
 
 
@@ -359,15 +360,15 @@ void main() {
 
 
     LongestSubstring longestSubstring = new LongestSubstring();
-    String sample="abcabcbb";
-    int len=longestSubstring.lengthOfLongestSubstringUsingBackTracking(sample);
-    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
-    len=longestSubstring.lengthOfLongestSubstring(sample);
-    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
+    String sample = "abcabcbb";
+    int len = longestSubstring.lengthOfLongestSubstringUsingBackTracking(sample);
+    println("\nmax length of substring of string:" + sample + "is " + len + "\n");
+    len = longestSubstring.lengthOfLongestSubstring(sample);
+    println("\nmax length of substring of string:" + sample + "is " + len + "\n");
     println("\n ---------------- \n");
 
-    len=longestSubstring.lengthOfLongestSubstringSlidingWindow(sample);
-    println("\nmax length of substring of string:"+sample+"is "+len+"\n");
+    len = longestSubstring.lengthOfLongestSubstringSlidingWindow(sample);
+    println("\nmax length of substring of string:" + sample + "is " + len + "\n");
     println("\n ---------------- \n");
 
     TreeBuilder builder = new TreeBuilder();
@@ -377,9 +378,38 @@ void main() {
 
     TreeNode treeNode = builder.buildTree(input);
     LevelOrder levelOrder = new LevelOrder();
-    List<List<Integer>> levelOrderTraversalPath=levelOrder.levelOrder(treeNode);
-    println("\nlevel order travsersal of the tree:"+levelOrderTraversalPath+"\n");
+    List<List<Integer>> levelOrderTraversalPath = levelOrder.levelOrder(treeNode);
+    println("\nlevel order travsersal of the tree:" + levelOrderTraversalPath + "\n");
     println("\n ---------------- \n");
+
+    PolishNotation polishNotation = new PolishNotation();
+    String[] polishNotationExpression = new String[]{"4", "13", "5", "/", "+"};
+    int evaluatedValue=polishNotation.evalRPN(polishNotationExpression);
+
+    println("\nEvaluating polishNotation expression and the answer is "+evaluatedValue+" \n");
+    println("\n ---------------- \n");
+
+    //[[2,4],[1,3],[2,4],[1,3]]
+    GraphNode graphNode1 = new GraphNode(1);
+    GraphNode graphNode2 = new GraphNode(2);
+    GraphNode graphNode3 = new GraphNode(3);
+    GraphNode graphNode4 = new GraphNode(4);
+    graphNode1.neighbors.add(graphNode2);
+    graphNode1.neighbors.add(graphNode4);
+
+    graphNode2.neighbors.add(graphNode1);
+    graphNode2.neighbors.add(graphNode3);
+
+    graphNode3.neighbors.add(graphNode2);
+    graphNode3.neighbors.add(graphNode4);
+
+    graphNode4.neighbors.add(graphNode1);
+    graphNode4.neighbors.add(graphNode2);
+    CloneGraph cloneGraph = new CloneGraph();
+    printGraph(cloneGraph.cloneGraph(graphNode1));
+
+
+
 
 
 }
