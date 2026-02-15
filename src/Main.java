@@ -1,5 +1,6 @@
 import dsa.*;
 
+import static dsa.GraphPrinter.buildTestGraph;
 import static dsa.GraphPrinter.printGraph;
 import static dsa.NodeWithRandomPointer.printListWithRandomPointer;
 import static java.lang.IO.println;
@@ -386,27 +387,13 @@ void main() {
     String[] polishNotationExpression = new String[]{"4", "13", "5", "/", "+"};
     int evaluatedValue=polishNotation.evalRPN(polishNotationExpression);
 
-    println("\nEvaluating polishNotation expression and the answer is "+evaluatedValue+" \n");
+    println("\nEvaluating polishNotation expression: "+ String.join("", polishNotationExpression) +" and the answer is "+evaluatedValue+" \n");
     println("\n ---------------- \n");
 
-    //[[2,4],[1,3],[2,4],[1,3]]
-    GraphNode graphNode1 = new GraphNode(1);
-    GraphNode graphNode2 = new GraphNode(2);
-    GraphNode graphNode3 = new GraphNode(3);
-    GraphNode graphNode4 = new GraphNode(4);
-    graphNode1.neighbors.add(graphNode2);
-    graphNode1.neighbors.add(graphNode4);
-
-    graphNode2.neighbors.add(graphNode1);
-    graphNode2.neighbors.add(graphNode3);
-
-    graphNode3.neighbors.add(graphNode2);
-    graphNode3.neighbors.add(graphNode4);
-
-    graphNode4.neighbors.add(graphNode1);
-    graphNode4.neighbors.add(graphNode2);
+    GraphNode graphNode = buildTestGraph(new int[][]{{2,4},{1,3},{2,4},{1,3}});
     CloneGraph cloneGraph = new CloneGraph();
-    printGraph(cloneGraph.cloneGraph(graphNode1));
+
+    printGraph(cloneGraph.cloneGraph(graphNode));
 
 
 
