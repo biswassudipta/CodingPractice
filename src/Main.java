@@ -395,6 +395,12 @@ void main() {
 
     printGraph(cloneGraph.cloneGraph(graphNode));
 
+    CourseComplete courseComplete = new CourseComplete();
+    int[][] prerequisites= new int[][]{{1,0},{1,2},{0,1}};
+
+    println("\n  \n");
+    println("\n Can all courses be completed? :"+ courseComplete.canFinish(3, prerequisites)+" \n");
+
 
 
 
