@@ -12,8 +12,7 @@ public class CourseComplete {
         int[] color = new int[numCourses];
         for (int i = 0; i < numCourses; i++) {
             if (color[i] == 0) {
-                if (dfsUtil(i, adj, color))
-                    return false;
+                if (dfsUtil(i, adj, color)) return false;
             }
         }
 
@@ -45,8 +44,7 @@ public class CourseComplete {
             if (color[v] == black) {
                 return true;
             }
-            if (color[v] == unVisited && dfsUtil(v, adj,
-                    color)) {
+            if (color[v] == unVisited && dfsUtil(v, adj, color)) {
                 return true;
 
             }

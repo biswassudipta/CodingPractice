@@ -399,7 +399,7 @@ void main() {
     TreeNode treeNode = builder.buildTree(input);
     LevelOrder levelOrder = new LevelOrder();
     List<List<Integer>> levelOrderTraversalPath = levelOrder.levelOrder(treeNode);
-    println("\nlevel order travsersal of the tree:" + levelOrderTraversalPath + "\n");
+    println("\nlevel order traversal of the tree:" + levelOrderTraversalPath + "\n");
     println("\n ---------------- \n");
 
     PolishNotation polishNotation = new PolishNotation();
@@ -457,6 +457,27 @@ void main() {
     testSearch(trie, "apple", false);
     testSearch(trie, "app", true);
     testStartsWith(trie, "appl", false);
+
+    CoinChange coinChange = new CoinChange();
+    int amount =500;
+    int[] coins=new int[]{3,5,7,8,9,10,11};
+    int minDP=coinChange.findMinimumCoinsDP(coins,amount);
+    println("\nminimum no of coins required using Dynamic Programming is :" +minDP + "\n");
+    int minBT=coinChange.findMinimumCoinsBT(coins,amount);
+    println("\nminimum no of coins required using backtracking is :" +minBT + "\n");
+    int totalDP=coinChange.findTotalCombinationsDP(coins,amount);
+    println("\ntotal combination  coins required using Dynamic Programming is :" +totalDP + "\n");
+    int totalBT=coinChange.findTotalCombinationsBT(coins,amount);
+    println("\ntotal combination of coins using backtracking is :" +totalBT + "\n");
+
+    println("\n ---------------- \n");
+
+    ArrayProduct arrayProduct = new ArrayProduct();
+    int[] productValues=arrayProduct.productExceptSelf(new int[]{2,3,4,5});
+    println("\nproduct of the numbers in array but self without using division :" + String.join(",", Arrays.toString(productValues)) + "\n");
+
+
+
 }
 
 
