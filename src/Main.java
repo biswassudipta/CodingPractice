@@ -404,21 +404,21 @@ void main() {
 
     PolishNotation polishNotation = new PolishNotation();
     String[] polishNotationExpression = new String[]{"4", "13", "5", "/", "+"};
-    int evaluatedValue=polishNotation.evalRPN(polishNotationExpression);
+    int evaluatedValue = polishNotation.evalRPN(polishNotationExpression);
 
-    println("\nEvaluating polishNotation expression: "+ String.join("", polishNotationExpression) +" and the answer is "+evaluatedValue+" \n");
+    println("\nEvaluating polishNotation expression: " + String.join("", polishNotationExpression) + " and the answer is " + evaluatedValue + " \n");
     println("\n ---------------- \n");
 
-    GraphNode graphNode = buildTestGraph(new int[][]{{2,4},{1,3},{2,4},{1,3}});
+    GraphNode graphNode = buildTestGraph(new int[][]{{2, 4}, {1, 3}, {2, 4}, {1, 3}});
     CloneGraph cloneGraph = new CloneGraph();
 
     printGraph(cloneGraph.cloneGraph(graphNode));
 
     CourseComplete courseComplete = new CourseComplete();
-    int[][] prerequisites= new int[][]{{1,0},{1,2},{0,1}};
+    int[][] prerequisites = new int[][]{{1, 0}, {1, 2}, {0, 1}};
 
     println("\n  \n");
-    println("\n Can all courses be completed? :"+ courseComplete.canFinish(3, prerequisites)+" \n");
+    println("\n Can all courses be completed? :" + courseComplete.canFinish(3, prerequisites) + " \n");
 
 
     Trie trie = new Trie();
@@ -459,24 +459,80 @@ void main() {
     testStartsWith(trie, "appl", false);
 
     CoinChange coinChange = new CoinChange();
-    int amount =500;
-    int[] coins=new int[]{3,5,7,8,9,10,11};
-    int minDP=coinChange.findMinimumCoinsDP(coins,amount);
-    println("\nminimum no of coins required using Dynamic Programming is :" +minDP + "\n");
-    int minBT=coinChange.findMinimumCoinsBT(coins,amount);
-    println("\nminimum no of coins required using backtracking is :" +minBT + "\n");
-    int totalDP=coinChange.findTotalCombinationsDP(coins,amount);
-    println("\ntotal combination  coins required using Dynamic Programming is :" +totalDP + "\n");
-    int totalBT=coinChange.findTotalCombinationsBT(coins,amount);
-    println("\ntotal combination of coins using backtracking is :" +totalBT + "\n");
+    int amount = 50;
+    int[] coins = new int[]{1, 2, 3};
+    int minDP = coinChange.findMinimumCoinsDP(coins, amount);
+    println("\nminimum no of coins required using Dynamic Programming is :" + minDP + "\n");
+    int minBT = coinChange.findMinimumCoinsBT(coins, amount);
+    println("\nminimum no of coins required using backtracking is :" + minBT + "\n");
+    int totalDP = coinChange.findTotalCombinationsDP(coins, amount);
+    println("\ntotal combination  coins required using Dynamic Programming is :" + totalDP + "\n");
+    int totalBT = coinChange.findTotalCombinationsBT(coins, amount);
+    println("\ntotal combination of coins using backtracking is :" + totalBT + "\n");
 
     println("\n ---------------- \n");
 
     ArrayProduct arrayProduct = new ArrayProduct();
-    int[] productValues=arrayProduct.productExceptSelf(new int[]{2,3,4,5});
+    int[] productValues = arrayProduct.productExceptSelf(new int[]{2, 3, 0, 4, 5});
     println("\nproduct of the numbers in array but self without using division :" + String.join(",", Arrays.toString(productValues)) + "\n");
 
+    // 1. Initialize the Stack
+    MinStack stack = new MinStack();
+    System.out.println("Stack Initialized.");
 
+    // 2. Push elements: 5, then 3, then 7, then 2
+    System.out.println("\n--- Pushing Elements ---");
+    stack.push(5);
+    System.out.println("Pushed: 5 | Current Min: " + stack.getMin()); // Min should be 5
+
+    stack.push(3);
+    System.out.println("Pushed: 3 | Current Min: " + stack.getMin()); // Min should be 3
+
+    stack.push(7);
+    System.out.println("Pushed: 7 | Current Min: " + stack.getMin()); // Min should remain 3
+
+    stack.push(2);
+    System.out.println("Pushed: 2 | Current Min: " + stack.getMin()); // Min should become 2
+
+    // 3. Check Top
+    System.out.println("\n--- Checking Top ---");
+    System.out.println("Top element: " + stack.top()); // Should be 2
+
+    // 4. Pop elements and verify Min updates
+    System.out.println("\n--- Popping Elements ---");
+
+    stack.pop(); // Removes 2
+    System.out.println("Popped. New Top: " + stack.top() + " | New Min: " + stack.getMin());
+    // Min should go back to 3
+
+    stack.pop(); // Removes 7
+    System.out.println("Popped. New Top: " + stack.top() + " | New Min: " + stack.getMin());
+    // Min should stay 3
+
+    stack.pop(); // Removes 3
+    System.out.println("Popped. New Top: " + stack.top() + " | New Min: " + stack.getMin());
+    // Min should go back to 5
+
+    char[][] grid = {
+            {'1', '1', '0', '0', '0'},
+            {'1', '1', '0', '0', '0'},
+            {'0', '0', '1', '0', '0'},
+            {'0', '0', '0', '1', '1'}
+    };
+
+    IslandsAndWater islandsAndWater = new IslandsAndWater();
+    int noOfIslands = islandsAndWater.numIslands(grid);
+    println("\nno of of islands :" + noOfIslands + "\n");
+
+    int[][] orangeBucket = {
+            {2, 1, 1},
+            {1, 1, 0},
+            {0, 1, 1}
+    };
+
+    RottingOranges rottingOranges = new RottingOranges();
+    int time = rottingOranges.orangesRotting(orangeBucket);
+    println("\ntime taken for all oranges to rot :" + time + "\n");
 
 }
 
