@@ -274,7 +274,7 @@ void main() {
     println("\n ---------------- \n");
 
     ClimbingStairs climbingStairs = new ClimbingStairs();
-    int noOfStairCas = 12345;
+    int noOfStairCas = 345;
     climbingStairs.climbStairsUsingDP(noOfStairCas);
     climbingStairs.climbStairsUsingCombinations(noOfStairCas);
     climbingStairs.climbStairsUsingBruteForce(noOfStairCas);

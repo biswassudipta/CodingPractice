@@ -7,7 +7,7 @@ public class CourseComplete {
 
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
-        List<Integer>[] adj = constructAdj(numCourses, prerequisites);
+        List<List<Integer>> adj = constructAdj(numCourses, prerequisites);
 
         int[] color = new int[numCourses];
         for (int i = 0; i < numCourses; i++) {
@@ -20,28 +20,28 @@ public class CourseComplete {
         return true;
     }
 
-    private List<Integer>[] constructAdj(int V,
-                                         int[][] edges) {
-        List<Integer>[] adj = new ArrayList[V];
+    private List<List<Integer>> constructAdj(int V, int[][] edges) {
+        List<List<Integer>> adj = new ArrayList<>(V);
+
         for (int i = 0; i < V; i++) {
-            adj[i] = new ArrayList<>();
+            adj.add(new ArrayList<>());
         }
 
         for (int[] edge : edges) {
-            adj[edge[0]].add(edge[1]);
+            adj.get(edge[0]).add(edge[1]);
         }
 
         return adj;
     }
 
-    private boolean dfsUtil(int u, List<Integer>[] adj, int[] color) {
+    private boolean dfsUtil(int u, List<List<Integer>> adj, int[] color) {
         final int unVisited = 0;
         final int grey = 1;
         final int black = 2;
 
         color[u] = black;
 
-        for (int v : adj[u]) {
+        for (int v : adj.get(u)) {
             if (color[v] == black) {
                 return true;
             }
