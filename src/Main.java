@@ -29,6 +29,25 @@ public static int[][] generateTSPInput(int n) {
     return dist;
 }
 
+private static void insertAndPrint(Trie trie, String word) {
+    trie.insert(word);
+    System.out.println("Inserted: " + word);
+}
+
+private static void testSearch(Trie trie, String word, boolean expected) {
+    boolean result = trie.search(word);
+    String status = (result == expected) ? "PASS" : "FAIL";
+    System.out.printf("Search '%-6s' | Expected: %-5s | Got: %-5s | [%s]%n",
+            word, expected, result, status);
+}
+
+private static void testStartsWith(Trie trie, String prefix, boolean expected) {
+    boolean result = trie.startsWith(prefix);
+    String status = (result == expected) ? "PASS" : "FAIL";
+    System.out.printf("Prefix '%-6s' | Expected: %-5s | Got: %-5s | [%s]%n",
+            prefix, expected, result, status);
+}
+
 static int INF = Integer.MAX_VALUE;
 
 void main() {
@@ -255,7 +274,7 @@ void main() {
     println("\n ---------------- \n");
 
     ClimbingStairs climbingStairs = new ClimbingStairs();
-    int noOfStairCas = 9;
+    int noOfStairCas = 12345;
     climbingStairs.climbStairsUsingDP(noOfStairCas);
     climbingStairs.climbStairsUsingCombinations(noOfStairCas);
     climbingStairs.climbStairsUsingBruteForce(noOfStairCas);
@@ -402,9 +421,42 @@ void main() {
     println("\n Can all courses be completed? :"+ courseComplete.canFinish(3, prerequisites)+" \n");
 
 
+    Trie trie = new Trie();
 
+    System.out.println("--- 1. INSERTION TEST ---");
+    insertAndPrint(trie, "apple");
+    insertAndPrint(trie, "app");
+    insertAndPrint(trie, "beer");
+    insertAndPrint(trie, "jam");
 
+    System.out.println("\n--- 2. SEARCH TEST ---");
+    testSearch(trie, "apple", true);
+    testSearch(trie, "app", true);
+    testSearch(trie, "beer", true);
+    testSearch(trie, "appl", false);
+    testSearch(trie, "jammy", false);
 
+    System.out.println("\n--- 3. STARTS_WITH TEST ---");
+    testStartsWith(trie, "app", true);
+    testStartsWith(trie, "be", true);
+    testStartsWith(trie, "j", true);
+    testStartsWith(trie, "z", false);
+
+    System.out.println("\n--- 4. DELETION TEST (Leaf Node) ---");
+
+    System.out.println("Deleting 'jam'...");
+    trie.delete("jam");
+    testSearch(trie, "jam", false);
+    testStartsWith(trie, "j", false); // "j" node should be gone (pruned)
+
+    System.out.println("\n--- 5. DELETION TEST (Overlap/Pruning) ---");
+
+    System.out.println("Deleting 'apple'...");
+    trie.delete("apple");
+
+    testSearch(trie, "apple", false);
+    testSearch(trie, "app", true);
+    testStartsWith(trie, "appl", false);
 }
 
 
