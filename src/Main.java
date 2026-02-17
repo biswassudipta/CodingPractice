@@ -140,6 +140,11 @@ void main() {
     println("Selection sort l \n");
     basicSort.selectionSort(q6);
     for (int integer : q6) IO.print(integer + ",");
+    println("\n ---------------- \n");
+    println("sort colors \n");
+    int[] colors=new int[]{2,2,1,0,1,2,0,2,1,0};
+    basicSort.sortColors(colors);
+    for (int integer : colors) IO.print(integer + ",");
     println("\n --------Huffman coding testing-------- \n");
 
     String text = "This is the text to be encoded";
@@ -562,6 +567,13 @@ void main() {
         System.out.println();
     }
 
+  String sentence="applepenapple";
+  List<String> words = Arrays.asList("apple","pen");
+  WordBreak wordBreak = new WordBreak();
+  boolean isPossible=  wordBreak.wordBreakDP(sentence, words);
+  println("\nCan be segmented into space separated words [using Dynamic Programming]?:" + isPossible + "\n");
+  isPossible=wordBreak.wordBreakBT(sentence, words);
+  println("\nCan be segmented into space separated words [Using backtracking]?:" + isPossible + "\n");
 }
 
 
