@@ -41,7 +41,7 @@ public class AccountMerging {
             result.add(emails);
         }
 
-        result.sort(Comparator.comparing(a -> a.get(0)));
+        result.sort(Comparator.comparing(List::getFirst));
 
         return result;
     }
