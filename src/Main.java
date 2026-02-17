@@ -341,6 +341,9 @@ void main() {
     InsertInterval insertInterval = new InsertInterval();
     int[][] newIntervals = insertInterval.insert(intervals, newInterval);
     println("new set of intervals \n" + Arrays.deepToString(newIntervals));
+    intervals= new int[][]{{1,4},{0,0}};
+    int[][] mergedIntervals = insertInterval.merge(intervals);
+    println("new set of intervals after merging overlapping intervals \n" + Arrays.deepToString(mergedIntervals));
     println("\n ---------------- \n");
 
     String txt = "aabaacaadaabaaba";
@@ -533,6 +536,31 @@ void main() {
     RottingOranges rottingOranges = new RottingOranges();
     int time = rottingOranges.orangesRotting(orangeBucket);
     println("\ntime taken for all oranges to rot :" + time + "\n");
+    println("\n ---------------- \n");
+    int[] sortedRotatedArray= new int[]{3,4,5,6,7,8,1,2};
+    SortedRotatedArraySearch sortedRotatedArraySearch = new SortedRotatedArraySearch();
+    int searchResult=sortedRotatedArraySearch.search(sortedRotatedArray,2);
+    println("\nTarget element found at the index :" + searchResult + "\n");
+    List<List<String>> accounts = new ArrayList<>();
+
+    accounts.add(Arrays.asList("Hanzo", "Hanzo2@m.co", "Hanzo3@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo4@m.co", "Hanzo5@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo0@m.co", "Hanzo1@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo3@m.co", "Hanzo4@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo7@m.co", "Hanzo8@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo1@m.co", "Hanzo2@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo6@m.co", "Hanzo7@m.co"));
+    accounts.add(Arrays.asList("Hanzo", "Hanzo5@m.co", "Hanzo6@m.co"));
+
+    AccountMerging accountMerging = new AccountMerging();
+    List<List<String>> accountList= accountMerging.accountsMerge(accounts);
+    println("\nMerged accountList:\n");
+    for (List<String> row : accountList) {
+        for (String item : row) {
+            System.out.printf("%-20s", item);
+        }
+        System.out.println();
+    }
 
 }
 
