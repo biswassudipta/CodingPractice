@@ -574,6 +574,17 @@ void main() {
   println("\nCan be segmented into space separated words [using Dynamic Programming]?:" + isPossible + "\n");
   isPossible=wordBreak.wordBreakBT(sentence, words);
   println("\nCan be segmented into space separated words [Using backtracking]?:" + isPossible + "\n");
+
+
+  PartitionEqualSubsetSum partitionEqualSubsetSum = new PartitionEqualSubsetSum();
+  int[] setToBePartitioned=new int[]{1,5,11,5};
+  boolean isSumPossible=  partitionEqualSubsetSum.canPartition(setToBePartitioned);
+  println("\n Can partition Equal Subset Sum possible [using set and probable sums]?:" + isSumPossible + "\n");
+  isSumPossible=partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
+  println("\nCan partition Equal Subset Sum possible [using Dynamic Programming]?:" + isSumPossible + "\n");
+
+  isSumPossible=partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
+  println("\ncam partition Equal Subset Sum possible[Using backtracking]?:" + isSumPossible + "\n");
 }
 
 
