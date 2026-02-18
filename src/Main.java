@@ -589,7 +589,7 @@ void main() {
     ATOI atoi = new ATOI();
     String exp = "    -00001337c0d3";
     int evaluatedVal = atoi.myAtoi(exp);
-    println("\n Evaluated numeric value of the express given?:" + evaluatedVal + "\n");
+    println("\nEvaluated numeric value of the express given?:" + evaluatedVal + "\n");
 
 
 }
