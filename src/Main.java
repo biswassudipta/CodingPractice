@@ -142,7 +142,7 @@ void main() {
     for (int integer : q6) IO.print(integer + ",");
     println("\n ---------------- \n");
     println("sort colors \n");
-    int[] colors=new int[]{2,2,1,0,1,2,0,2,1,0};
+    int[] colors = new int[]{2, 2, 1, 0, 1, 2, 0, 2, 1, 0};
     basicSort.sortColors(colors);
     for (int integer : colors) IO.print(integer + ",");
     println("\n --------Huffman coding testing-------- \n");
@@ -346,7 +346,7 @@ void main() {
     InsertInterval insertInterval = new InsertInterval();
     int[][] newIntervals = insertInterval.insert(intervals, newInterval);
     println("new set of intervals \n" + Arrays.deepToString(newIntervals));
-    intervals= new int[][]{{1,4},{0,0}};
+    intervals = new int[][]{{1, 4}, {0, 0}};
     int[][] mergedIntervals = insertInterval.merge(intervals);
     println("new set of intervals after merging overlapping intervals \n" + Arrays.deepToString(mergedIntervals));
     println("\n ---------------- \n");
@@ -542,9 +542,9 @@ void main() {
     int time = rottingOranges.orangesRotting(orangeBucket);
     println("\ntime taken for all oranges to rot :" + time + "\n");
     println("\n ---------------- \n");
-    int[] sortedRotatedArray= new int[]{3,4,5,6,7,8,1,2};
+    int[] sortedRotatedArray = new int[]{3, 4, 5, 6, 7, 8, 1, 2};
     SortedRotatedArraySearch sortedRotatedArraySearch = new SortedRotatedArraySearch();
-    int searchResult=sortedRotatedArraySearch.search(sortedRotatedArray,2);
+    int searchResult = sortedRotatedArraySearch.search(sortedRotatedArray, 2);
     println("\nTarget element found at the index :" + searchResult + "\n");
     List<List<String>> accounts = new ArrayList<>();
 
@@ -558,7 +558,7 @@ void main() {
     accounts.add(Arrays.asList("Hanzo", "Hanzo5@m.co", "Hanzo6@m.co"));
 
     AccountMerging accountMerging = new AccountMerging();
-    List<List<String>> accountList= accountMerging.accountsMerge(accounts);
+    List<List<String>> accountList = accountMerging.accountsMerge(accounts);
     println("\nMerged accountList:\n");
     for (List<String> row : accountList) {
         for (String item : row) {
@@ -567,24 +567,31 @@ void main() {
         System.out.println();
     }
 
-  String sentence="applepenapple";
-  List<String> words = Arrays.asList("apple","pen");
-  WordBreak wordBreak = new WordBreak();
-  boolean isPossible=  wordBreak.wordBreakDP(sentence, words);
-  println("\nCan be segmented into space separated words [using Dynamic Programming]?:" + isPossible + "\n");
-  isPossible=wordBreak.wordBreakBT(sentence, words);
-  println("\nCan be segmented into space separated words [Using backtracking]?:" + isPossible + "\n");
+    String sentence = "applepenapple";
+    List<String> words = Arrays.asList("apple", "pen");
+    WordBreak wordBreak = new WordBreak();
+    boolean isPossible = wordBreak.wordBreakDP(sentence, words);
+    println("\nCan be segmented into space separated words [using Dynamic Programming]?:" + isPossible + "\n");
+    isPossible = wordBreak.wordBreakBT(sentence, words);
+    println("\nCan be segmented into space separated words [Using backtracking]?:" + isPossible + "\n");
 
 
-  PartitionEqualSubsetSum partitionEqualSubsetSum = new PartitionEqualSubsetSum();
-  int[] setToBePartitioned=new int[]{1,5,11,5};
-  boolean isSumPossible=  partitionEqualSubsetSum.canPartition(setToBePartitioned);
-  println("\n Can partition Equal Subset Sum possible [using set and probable sums]?:" + isSumPossible + "\n");
-  isSumPossible=partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
-  println("\nCan partition Equal Subset Sum possible [using Dynamic Programming]?:" + isSumPossible + "\n");
+    PartitionEqualSubsetSum partitionEqualSubsetSum = new PartitionEqualSubsetSum();
+    int[] setToBePartitioned = new int[]{1, 5, 11, 5};
+    boolean isSumPossible = partitionEqualSubsetSum.canPartition(setToBePartitioned);
+    println("\n Can partition Equal Subset Sum possible [using set and probable sums]?:" + isSumPossible + "\n");
+    isSumPossible = partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
+    println("\nCan partition Equal Subset Sum possible [using Dynamic Programming]?:" + isSumPossible + "\n");
 
-  isSumPossible=partitionEqualSubsetSum.canPartitionBT(setToBePartitioned);
-  println("\ncam partition Equal Subset Sum possible[Using backtracking]?:" + isSumPossible + "\n");
+    isSumPossible = partitionEqualSubsetSum.canPartitionBT(setToBePartitioned);
+    println("\ncam partition Equal Subset Sum possible[Using backtracking]?:" + isSumPossible + "\n");
+
+    ATOI atoi = new ATOI();
+    String exp = "    -00001337c0d3";
+    int evaluatedVal = atoi.myAtoi(exp);
+    println("\n Evaluated numeric value of the express given?:" + evaluatedVal + "\n");
+
+
 }
 
 
