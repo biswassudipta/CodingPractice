@@ -583,7 +583,7 @@ void main() {
   isSumPossible=partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
   println("\nCan partition Equal Subset Sum possible [using Dynamic Programming]?:" + isSumPossible + "\n");
 
-  isSumPossible=partitionEqualSubsetSum.canPartitionDP(setToBePartitioned);
+  isSumPossible=partitionEqualSubsetSum.canPartitionBT(setToBePartitioned);
   println("\ncam partition Equal Subset Sum possible[Using backtracking]?:" + isSumPossible + "\n");
 }
 
