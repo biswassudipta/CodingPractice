@@ -3,6 +3,11 @@ package dsa;
 public class ATOI {
     private boolean isNegative = false;
     private boolean isSignOperatorAssigned = false;
+    private static final int SPACE =32;
+    private static final int PLUS_OPERATOR =43;
+    private static final int MINUS_OPERATOR =45;
+    private static final int ZER0 =48;
+    private static final int NINE =57;
 
     public int myAtoi(String s) {
         char[] chars = s.toCharArray();
@@ -36,16 +41,16 @@ public class ATOI {
     }
 
     private boolean isDigit(char i) {
-        return i >= 48 && i <= 57;
+        return i >= ZER0 && i <= NINE;
     }
 
     private boolean isSignOperator(char i, String digit) {
-        if (i == 45 && digit.isEmpty() && !isSignOperatorAssigned) {
+        if (i == MINUS_OPERATOR && digit.isEmpty() && !isSignOperatorAssigned) {
             isNegative = true;
             isSignOperatorAssigned = true;
             return true;
         }
-        if (i == 43 && digit.isEmpty() && !isSignOperatorAssigned) {
+        if (i == PLUS_OPERATOR && digit.isEmpty() && !isSignOperatorAssigned) {
             isSignOperatorAssigned = true;
             return true;
         }
@@ -53,6 +58,6 @@ public class ATOI {
     }
 
     private boolean isLeadingSpace(char i, String digit) {
-        return i == 32 && digit.isEmpty() && !isSignOperatorAssigned;
+        return i == SPACE && digit.isEmpty() && !isSignOperatorAssigned;
     }
 }
