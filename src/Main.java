@@ -591,6 +591,30 @@ void main() {
     int evaluatedVal = atoi.myAtoi(exp);
     println("\nEvaluated numeric value of the express given?:" + evaluatedVal + "\n");
 
+    println("\n ---------------- \n");
+    int[][] spiralMatrix=new int[][]{
+            {1,2,3,4},
+            {10,11,12,5},
+            {9,8,7,6}};
+
+    SpiralMatrix spiralMatrixPrinter=new SpiralMatrix();
+    spiralMatrixPrinter.spiralOrder(spiralMatrix);
+    println("\n ---------------- \n");
+
+    LongestPalindromicSubstring longestPalindromicSubstring=new LongestPalindromicSubstring();
+    String sampleString="babad";
+    println("\nLongest palindromic substring:" + longestPalindromicSubstring.longestPalindrome(sampleString) + "\n");
+
+    ConstructBinaryTree constructBinaryTree=new ConstructBinaryTree();
+    int[] preOrder=new int[]{3,9,20,15,7};
+    int[] inOrder=new int[]{9,3,15,20,7};
+
+    TreeNode formedTree=constructBinaryTree.buildTree(preOrder, inOrder);
+    BinaryTreePrinter.print(formedTree);
+
+
+
+
 
 }
 
