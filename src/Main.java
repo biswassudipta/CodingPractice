@@ -612,6 +612,47 @@ void main() {
     TreeNode formedTree=constructBinaryTree.buildTree(preOrder, inOrder);
     BinaryTreePrinter.print(formedTree);
 
+    LetterCombinations letterCombinations=new LetterCombinations();
+    List<String> keypadCombinations=letterCombinations.letterCombinations("23");
+    println("\nkey pad combinations :" +keypadCombinations + "\n");
+
+    WordSearch wordSearch=new WordSearch();
+    char[][] board = {
+            {'A', 'B', 'C', 'E'},
+            {'S', 'F', 'E', 'S'},
+            {'A', 'D', 'E', 'E'}
+    };
+    char[][] board1= new char[][]{{'A', 'B'},
+                        {'C', 'D'}};
+
+    String word = "ABCESEEEFS";
+    String word1 = "ACDB";
+    boolean isWordFoundBFS=wordSearch.existBFS(board, word);
+    println("\nDoes the word exist in the board?[using BFS]:" +isWordFoundBFS + "\n");
+    boolean isWordFoundDFS=wordSearch.existDFS(board, word);
+    println("\nDoes the word exist in the board?[using DFS:" +isWordFoundDFS + "\n");
+
+    int vertices= 6;
+    int[][] MHTEdges = {
+            {3, 0},
+            {3, 1},
+            {3, 2},
+            {3, 4},
+            {5, 4}
+    };
+
+    MinimumHeightTrees minimumHeightTrees=new MinimumHeightTrees();
+    List<Integer> rootsOfMHT=minimumHeightTrees.findMinHeightTrees(vertices, MHTEdges);
+    println("\nRoots from which MHT can be formed: " +rootsOfMHT + "\n");
+
+    char[] tasks=new char[]{'A','A','A','B','B','C','C','D','D','E','E'};
+    CPUScheduler cpuScheduler=new CPUScheduler();
+    int minimumTimeToCompleteAllTasks=cpuScheduler.leastInterval(tasks,2);
+    println("\nMinimum time to schedule all tasks " +minimumTimeToCompleteAllTasks + "\n");
+
+
+
+
 
 
 
