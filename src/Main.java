@@ -622,11 +622,9 @@ void main() {
             {'S', 'F', 'E', 'S'},
             {'A', 'D', 'E', 'E'}
     };
-    char[][] board1= new char[][]{{'A', 'B'},
-                        {'C', 'D'}};
+
 
     String word = "ABCESEEEFS";
-    String word1 = "ACDB";
     boolean isWordFoundBFS=wordSearch.existBFS(board, word);
     println("\nDoes the word exist in the board?[using BFS]:" +isWordFoundBFS + "\n");
     boolean isWordFoundDFS=wordSearch.existDFS(board, word);

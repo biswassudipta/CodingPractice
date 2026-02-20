@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class LetterCombinations {
     public List<String> letterCombinations(String digits) {
-        Map<Character, List<String>> map = new HashMap();
+        Map<Character, List<String>> map = new HashMap<>();
         List<String> result = new ArrayList<>();
         map.put('2', List.of("a", "b", "c"));
         map.put('3', List.of("d", "e", "f"));
