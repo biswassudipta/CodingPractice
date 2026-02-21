@@ -663,9 +663,47 @@ void main() {
     String t="aba";
     MinimumWindowSubString minimumWindowSubString=new MinimumWindowSubString();
     println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with duplicates '"+s+ "' is "+  minimumWindowSubString.minWindow(s,t)+" \n");
+
     println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with out duplicates '"+s+ "' is "+  minimumWindowSubString.minWindowWithoutDuplicates(s,t)+" \n");
+    TrapRainWater trapRainWater=new TrapRainWater();
+    int[] dams = new int[]{4,2,0,3,2,5};
+    int waterStored=trapRainWater.trap(dams);
+    println("\nTotal water that can be trapped : "+waterStored+"\n");
 
 
+    MedianFinder medianFinder=new MedianFinder();
+    medianFinder.addNum(1);
+    medianFinder.addNum(2);
+    medianFinder.addNum(3);
+    println("\nPrinting median of the input stream  : "+medianFinder.findMedian()+"\n");
+
+    WordLadder wordLadder=new WordLadder();
+    String beginWord="hit";
+    String endWord="cog";
+    List<String> wordList=List.of("hot","dot","dog","lot","log","cog");
+    int minLen=wordLadder.ladderLength(beginWord,endWord,wordList);
+
+    println("\nMinimum shortest wordLength "+minLen+"\n");
+
+    ListNode klst11 = new ListNode(1);
+    ListNode klst12 = new ListNode(4);
+    ListNode klst13 = new ListNode(5);
+    klst11.next = klst12;
+    klst11.next.next = klst13;
+    ListNode klst21 = new ListNode(1);
+    ListNode klst22 = new ListNode(3);
+    ListNode klst23 = new ListNode(4);
+    klst21.next = klst22;
+    klst21.next.next = klst23;
+
+    ListNode klst31 = new ListNode(2);
+    ListNode klst32 = new ListNode(6);
+
+    klst31.next = klst32;
+   ListNode[] kLists=new ListNode[]{klst11,klst21,klst31};
+
+    MergeKSortedLists mergeKSortedLists=new MergeKSortedLists();
+    ListNode.printList(mergeKSortedLists.mergeKLists(new ListNode[]{}));
 
 
 
