@@ -612,6 +612,17 @@ void main() {
     TreeNode formedTree=constructBinaryTree.buildTree(preOrder, inOrder);
     BinaryTreePrinter.print(formedTree);
 
+    KthSmallestNode kthSmallestNode=new KthSmallestNode();
+    println("\nKth smallest element in the BST :" + kthSmallestNode.kthSmallest(formedTree,5)+ "\n");
+
+
+    SerializeDeserializeBinaryTree serializeDeserializeBinaryTree=new SerializeDeserializeBinaryTree();
+    String serializedData=serializeDeserializeBinaryTree.serialize(formedTree);
+    println("\nData after serialization of BST :" + serializedData+ "\n");
+    println("\nTree  after deserialization of BST :" + serializedData+ "\n");
+    BinaryTreePrinter.print(serializeDeserializeBinaryTree.deserialize(serializedData));
+
+
     LetterCombinations letterCombinations=new LetterCombinations();
     List<String> keypadCombinations=letterCombinations.letterCombinations("23");
     println("\nkey pad combinations :" +keypadCombinations + "\n");
@@ -647,6 +658,12 @@ void main() {
     CPUScheduler cpuScheduler=new CPUScheduler();
     int minimumTimeToCompleteAllTasks=cpuScheduler.leastInterval(tasks,2);
     println("\nMinimum time to schedule all tasks " +minimumTimeToCompleteAllTasks + "\n");
+
+    String s="bbaa";
+    String t="aba";
+    MinimumWindowSubString minimumWindowSubString=new MinimumWindowSubString();
+    println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with duplicates '"+s+ "' is "+  minimumWindowSubString.minWindow(s,t)+" \n");
+    println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with out duplicates '"+s+ "' is "+  minimumWindowSubString.minWindowWithoutDuplicates(s,t)+" \n");
 
 
 
