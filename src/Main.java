@@ -698,12 +698,17 @@ void main() {
 
     ListNode klst31 = new ListNode(2);
     ListNode klst32 = new ListNode(6);
-
+    ListNode klst33 = new ListNode(11);
+    ListNode klst34 = new ListNode(12);
     klst31.next = klst32;
+    klst31.next.next = klst33;
+    klst31.next.next.next= klst34;
+
    ListNode[] kLists=new ListNode[]{klst11,klst21,klst31};
 
     MergeKSortedLists mergeKSortedLists=new MergeKSortedLists();
-    ListNode.printList(mergeKSortedLists.mergeKLists(new ListNode[]{}));
+    println("\nPrinting the final list after merging\n");
+    ListNode.printList(   mergeKSortedLists.mergeKLists(kLists));
 
 
 
