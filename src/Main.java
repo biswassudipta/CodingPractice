@@ -709,6 +709,54 @@ void main() {
     MergeKSortedLists mergeKSortedLists=new MergeKSortedLists();
     println("\nPrinting the final list after merging\n");
     ListNode.printList(   mergeKSortedLists.mergeKLists(kLists));
+    println("\n ---------------- \n");
+
+    Calculator calculator=new Calculator();
+    String mathematicalExpression="-1-11";
+    println("\nresult after evaluating the expression : "+calculator.calculate(mathematicalExpression)+"\n");
+
+    int[] startTime=new int[]{1,2,3,3};
+    int[] endTime=new int[]{3,4,5,6};
+    int[] profit=new int[]{50,10,40,70};
+
+    MaxProfitJobScheduling maxProfitJobScheduling=new MaxProfitJobScheduling();
+    int maxProfitAfterScheduling=maxProfitJobScheduling.jobScheduling(startTime,endTime,profit);
+    println("\nMax profit from these jobs: "+maxProfitAfterScheduling+"\n");
+
+    BSTToMaxHeap bstToMaxHeap=new BSTToMaxHeap();
+
+    TreeNode rootBST = new TreeNode(4);
+    rootBST.left = new TreeNode(2);
+    rootBST.right = new TreeNode(6);
+    rootBST.left.left = new TreeNode(1);
+    rootBST.left.right = new TreeNode(3);
+    rootBST.right.left = new TreeNode(5);
+    rootBST.right.right = new TreeNode(7);
+    println("\nPrinting binary search tree \n");
+    BinaryTreePrinter.print(rootBST);
+
+    bstToMaxHeap.convertBSTToMaxHeap(rootBST);
+    println("\nPrinting binary maxHeap tree\n");
+
+    BinaryTreePrinter.print(rootBST);
+
+    TreeNode rootBST1 = new TreeNode(4);
+    rootBST1.left = new TreeNode(2);
+    rootBST1.right = new TreeNode(6);
+    rootBST1.left.left = new TreeNode(1);
+    rootBST1.left.right = new TreeNode(3);
+    rootBST1.right.left = new TreeNode(5);
+    rootBST1.right.right = new TreeNode(7);
+
+    println("\nPrinting binary Greater tree\n");
+    GreaterTree greaterTree=new GreaterTree();
+
+    BinaryTreePrinter.print(greaterTree.convertBST(rootBST1));
+
+    BinaryTreeCameras binaryTreeCameras=new BinaryTreeCameras();
+
+    println("\nMinimum no of cameras required  :"+binaryTreeCameras.minCameraCover(rootBST1)+"\n");
+
 
 
 

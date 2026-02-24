@@ -56,8 +56,6 @@ public class WordLadder {
             }
 
         }
-
-
         if (minLen == Integer.MAX_VALUE) {
             return 0;
         } else {
