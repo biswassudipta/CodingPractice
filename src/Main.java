@@ -757,6 +757,11 @@ void main() {
 
     println("\nMinimum no of cameras required  :"+binaryTreeCameras.minCameraCover(rootBST1)+"\n");
 
+    HistogramArea histogramArea=new HistogramArea();
+    int[] heights= new int[]{2,1,5,6,2,3};
+
+    println("\nlargest rectangle  in the histogram  :"+histogramArea.largestRectangleArea(heights)+"\n");
+
 
 
 
