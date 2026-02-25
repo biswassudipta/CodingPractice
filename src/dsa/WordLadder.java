@@ -72,9 +72,6 @@ public class WordLadder {
                 if (count > 1) return false;
             }
         }
-        if (count == word.length()) {
-            return true;
-        }
-        return count == 1;
+        return count != 0 && count != word.length();
     }
 }
