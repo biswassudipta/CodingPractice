@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MultiStageGraphShortestPath {
 
-    public int findShortestPath(int[][] graph) {
+    public static int findShortestPath(int[][] graph) {
         int N = graph.length;
         int[] distance = new int[N];
         Arrays.fill(distance, Integer.MAX_VALUE);

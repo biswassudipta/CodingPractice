@@ -592,42 +592,42 @@ void main() {
     println("\nEvaluated numeric value of the express given?:" + evaluatedVal + "\n");
 
     println("\n ---------------- \n");
-    int[][] spiralMatrix=new int[][]{
-            {1,2,3,4},
-            {10,11,12,5},
-            {9,8,7,6}};
+    int[][] spiralMatrix = new int[][]{
+            {1, 2, 3, 4},
+            {10, 11, 12, 5},
+            {9, 8, 7, 6}};
 
-    SpiralMatrix spiralMatrixPrinter=new SpiralMatrix();
+    SpiralMatrix spiralMatrixPrinter = new SpiralMatrix();
     spiralMatrixPrinter.spiralOrder(spiralMatrix);
     println("\n ---------------- \n");
 
-    LongestPalindromicSubstring longestPalindromicSubstring=new LongestPalindromicSubstring();
-    String sampleString="babad";
+    LongestPalindromicSubstring longestPalindromicSubstring = new LongestPalindromicSubstring();
+    String sampleString = "babad";
     println("\nLongest palindromic substring:" + longestPalindromicSubstring.longestPalindrome(sampleString) + "\n");
 
-    ConstructBinaryTree constructBinaryTree=new ConstructBinaryTree();
-    int[] preOrder=new int[]{3,9,20,15,7};
-    int[] inOrder=new int[]{9,3,15,20,7};
+    ConstructBinaryTree constructBinaryTree = new ConstructBinaryTree();
+    int[] preOrder = new int[]{3, 9, 20, 15, 7};
+    int[] inOrder = new int[]{9, 3, 15, 20, 7};
 
-    TreeNode formedTree=constructBinaryTree.buildTree(preOrder, inOrder);
+    TreeNode formedTree = constructBinaryTree.buildTree(preOrder, inOrder);
     BinaryTreePrinter.print(formedTree);
 
-    KthSmallestNode kthSmallestNode=new KthSmallestNode();
-    println("\nKth smallest element in the BST :" + kthSmallestNode.kthSmallest(formedTree,5)+ "\n");
+    KthSmallestNode kthSmallestNode = new KthSmallestNode();
+    println("\nKth smallest element in the BST :" + kthSmallestNode.kthSmallest(formedTree, 5) + "\n");
 
 
-    SerializeDeserializeBinaryTree serializeDeserializeBinaryTree=new SerializeDeserializeBinaryTree();
-    String serializedData=serializeDeserializeBinaryTree.serialize(formedTree);
-    println("\nData after serialization of BST :" + serializedData+ "\n");
-    println("\nTree  after deserialization of BST :" + serializedData+ "\n");
+    SerializeDeserializeBinaryTree serializeDeserializeBinaryTree = new SerializeDeserializeBinaryTree();
+    String serializedData = serializeDeserializeBinaryTree.serialize(formedTree);
+    println("\nData after serialization of BST :" + serializedData + "\n");
+    println("\nTree  after deserialization of BST :" + serializedData + "\n");
     BinaryTreePrinter.print(serializeDeserializeBinaryTree.deserialize(serializedData));
 
 
-    LetterCombinations letterCombinations=new LetterCombinations();
-    List<String> keypadCombinations=letterCombinations.letterCombinations("23");
-    println("\nkey pad combinations :" +keypadCombinations + "\n");
+    LetterCombinations letterCombinations = new LetterCombinations();
+    List<String> keypadCombinations = letterCombinations.letterCombinations("23");
+    println("\nkey pad combinations :" + keypadCombinations + "\n");
 
-    WordSearch wordSearch=new WordSearch();
+    WordSearch wordSearch = new WordSearch();
     char[][] board = {
             {'A', 'B', 'C', 'E'},
             {'S', 'F', 'E', 'S'},
@@ -636,12 +636,12 @@ void main() {
 
 
     String word = "ABCESEEEFS";
-    boolean isWordFoundBFS=wordSearch.existBFS(board, word);
-    println("\nDoes the word exist in the board?[using BFS]:" +isWordFoundBFS + "\n");
-    boolean isWordFoundDFS=wordSearch.existDFS(board, word);
-    println("\nDoes the word exist in the board?[using DFS:" +isWordFoundDFS + "\n");
+    boolean isWordFoundBFS = wordSearch.existBFS(board, word);
+    println("\nDoes the word exist in the board?[using BFS]:" + isWordFoundBFS + "\n");
+    boolean isWordFoundDFS = wordSearch.existDFS(board, word);
+    println("\nDoes the word exist in the board?[using DFS:" + isWordFoundDFS + "\n");
 
-    int vertices= 6;
+    int vertices = 6;
     int[][] MHTEdges = {
             {3, 0},
             {3, 1},
@@ -650,40 +650,40 @@ void main() {
             {5, 4}
     };
 
-    MinimumHeightTrees minimumHeightTrees=new MinimumHeightTrees();
-    List<Integer> rootsOfMHT=minimumHeightTrees.findMinHeightTrees(vertices, MHTEdges);
-    println("\nRoots from which MHT can be formed: " +rootsOfMHT + "\n");
+    MinimumHeightTrees minimumHeightTrees = new MinimumHeightTrees();
+    List<Integer> rootsOfMHT = minimumHeightTrees.findMinHeightTrees(vertices, MHTEdges);
+    println("\nRoots from which MHT can be formed: " + rootsOfMHT + "\n");
 
-    char[] tasks=new char[]{'A','A','A','B','B','C','C','D','D','E','E'};
-    CPUScheduler cpuScheduler=new CPUScheduler();
-    int minimumTimeToCompleteAllTasks=cpuScheduler.leastInterval(tasks,2);
-    println("\nMinimum time to schedule all tasks " +minimumTimeToCompleteAllTasks + "\n");
+    char[] tasks = new char[]{'A', 'A', 'A', 'B', 'B', 'C', 'C', 'D', 'D', 'E', 'E'};
+    CPUScheduler cpuScheduler = new CPUScheduler();
+    int minimumTimeToCompleteAllTasks = cpuScheduler.leastInterval(tasks, 2);
+    println("\nMinimum time to schedule all tasks " + minimumTimeToCompleteAllTasks + "\n");
 
-    String s="bbaa";
-    String t="aba";
-    MinimumWindowSubString minimumWindowSubString=new MinimumWindowSubString();
-    println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with duplicates '"+s+ "' is "+  minimumWindowSubString.minWindow(s,t)+" \n");
+    String s = "bbaa";
+    String t = "aba";
+    MinimumWindowSubString minimumWindowSubString = new MinimumWindowSubString();
+    println("\nMinimum window substring containing all elements of the pattern '" + t + "' over the given string with duplicates '" + s + "' is " + minimumWindowSubString.minWindow(s, t) + " \n");
 
-    println("\nMinimum window substring containing all elements of the pattern '"+t+"' over the given string with out duplicates '"+s+ "' is "+  minimumWindowSubString.minWindowWithoutDuplicates(s,t)+" \n");
-    TrapRainWater trapRainWater=new TrapRainWater();
-    int[] dams = new int[]{4,2,0,3,2,5};
-    int waterStored=trapRainWater.trap(dams);
-    println("\nTotal water that can be trapped : "+waterStored+"\n");
+    println("\nMinimum window substring containing all elements of the pattern '" + t + "' over the given string with out duplicates '" + s + "' is " + minimumWindowSubString.minWindowWithoutDuplicates(s, t) + " \n");
+    TrapRainWater trapRainWater = new TrapRainWater();
+    int[] dams = new int[]{4, 2, 0, 3, 2, 5};
+    int waterStored = trapRainWater.trap(dams);
+    println("\nTotal water that can be trapped : " + waterStored + "\n");
 
 
-    MedianFinder medianFinder=new MedianFinder();
+    MedianFinder medianFinder = new MedianFinder();
     medianFinder.addNum(1);
     medianFinder.addNum(2);
     medianFinder.addNum(3);
-    println("\nPrinting median of the input stream  : "+medianFinder.findMedian()+"\n");
+    println("\nPrinting median of the input stream  : " + medianFinder.findMedian() + "\n");
 
-    WordLadder wordLadder=new WordLadder();
-    String beginWord="hit";
-    String endWord="cog";
-    List<String> wordList=List.of("hot","dot","dog","lot","log","cog");
-    int minLen=wordLadder.ladderLength(beginWord,endWord,wordList);
+    WordLadder wordLadder = new WordLadder();
+    String beginWord = "hit";
+    String endWord = "cog";
+    List<String> wordList = List.of("hot", "dot", "dog", "lot", "log", "cog");
+    int minLen = wordLadder.ladderLength(beginWord, endWord, wordList);
 
-    println("\nMinimum shortest wordLength "+minLen+"\n");
+    println("\nMinimum shortest wordLength " + minLen + "\n");
 
     ListNode klst11 = new ListNode(1);
     ListNode klst12 = new ListNode(4);
@@ -702,28 +702,28 @@ void main() {
     ListNode klst34 = new ListNode(12);
     klst31.next = klst32;
     klst31.next.next = klst33;
-    klst31.next.next.next= klst34;
+    klst31.next.next.next = klst34;
 
-   ListNode[] kLists=new ListNode[]{klst11,klst21,klst31};
+    ListNode[] kLists = new ListNode[]{klst11, klst21, klst31};
 
-    MergeKSortedLists mergeKSortedLists=new MergeKSortedLists();
+    MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
     println("\nPrinting the final list after merging\n");
-    ListNode.printList(   mergeKSortedLists.mergeKLists(kLists));
+    ListNode.printList(mergeKSortedLists.mergeKLists(kLists));
     println("\n ---------------- \n");
 
-    Calculator calculator=new Calculator();
-    String mathematicalExpression="-1-11";
-    println("\nresult after evaluating the expression : "+calculator.calculate(mathematicalExpression)+"\n");
+    Calculator calculator = new Calculator();
+    String mathematicalExpression = "-1-11";
+    println("\nresult after evaluating the expression : " + calculator.calculate(mathematicalExpression) + "\n");
 
-    int[] startTime=new int[]{1,2,3,3};
-    int[] endTime=new int[]{3,4,5,6};
-    int[] profit=new int[]{50,10,40,70};
+    int[] startTime = new int[]{1, 2, 3, 3};
+    int[] endTime = new int[]{3, 4, 5, 6};
+    int[] profit = new int[]{50, 10, 40, 70};
 
-    MaxProfitJobScheduling maxProfitJobScheduling=new MaxProfitJobScheduling();
-    int maxProfitAfterScheduling=maxProfitJobScheduling.jobScheduling(startTime,endTime,profit);
-    println("\nMax profit from these jobs: "+maxProfitAfterScheduling+"\n");
+    MaxProfitJobScheduling maxProfitJobScheduling = new MaxProfitJobScheduling();
+    int maxProfitAfterScheduling = maxProfitJobScheduling.jobScheduling(startTime, endTime, profit);
+    println("\nMax profit from these jobs: " + maxProfitAfterScheduling + "\n");
 
-    BSTToMaxHeap bstToMaxHeap=new BSTToMaxHeap();
+    BSTToMaxHeap bstToMaxHeap = new BSTToMaxHeap();
 
     TreeNode rootBST = new TreeNode(4);
     rootBST.left = new TreeNode(2);
@@ -749,22 +749,22 @@ void main() {
     rootBST1.right.right = new TreeNode(7);
 
     println("\nPrinting binary Greater tree\n");
-    GreaterTree greaterTree=new GreaterTree();
+    GreaterTree greaterTree = new GreaterTree();
 
     BinaryTreePrinter.print(greaterTree.convertBST(rootBST1));
 
-    BinaryTreeCameras binaryTreeCameras=new BinaryTreeCameras();
+    BinaryTreeCameras binaryTreeCameras = new BinaryTreeCameras();
 
-    println("\nMinimum no of cameras required  :"+binaryTreeCameras.minCameraCover(rootBST1)+"\n");
+    println("\nMinimum no of cameras required  :" + binaryTreeCameras.minCameraCover(rootBST1) + "\n");
 
-    HistogramArea histogramArea=new HistogramArea();
-    int[] heights= new int[]{2,1,5,6,2,3};
+    HistogramArea histogramArea = new HistogramArea();
+    int[] heights = new int[]{2, 1, 5, 6, 2, 3};
 
-    println("\nlargest rectangle  in the histogram  :"+histogramArea.largestRectangleArea(heights)+"\n");
+    println("\nlargest rectangle  in the histogram  :" + histogramArea.largestRectangleArea(heights) + "\n");
 
-
-
-
+    MirrorTree mirrorTree = new MirrorTree();
+    TreeNode symmetricTree = serializeDeserializeBinaryTree.deserialize("[1,2,2,3,4,4,3]");
+    println("\nThe tree is symmetric :" + mirrorTree.isSymmetric(symmetricTree) + "\n");
 
 
 
