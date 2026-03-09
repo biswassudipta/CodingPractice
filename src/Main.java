@@ -188,8 +188,7 @@ void main() {
             {INF, INF, INF, INF, INF, 0, INF, 13},
             {INF, INF, INF, INF, INF, INF, 0, 2},
             {INF, INF, INF, INF, INF, INF, INF, 0}};
-    MultiStageGraphShortestPath multiStageGraphShortestPath = new MultiStageGraphShortestPath();
-    println(multiStageGraphShortestPath.findShortestPath(multiStageGraph));
+    println(MultiStageGraphShortestPath.findShortestPath(multiStageGraph));
 
     int[][] floydWarshallGraph = {{0, 4, INF, 5, INF},
             {INF, 0, 1, INF, 6},
@@ -336,8 +335,8 @@ void main() {
     println("total combinations \n" + combinaionSum4);
     println("\n ---------------- \n");
 
-    PalindromePartitioning palidromePartioning = new PalindromePartitioning();
-    List<List<String>> setOfAllPalindromes = palidromePartioning.partition("aab");
+    PalindromePartitioning palidromePortioning = new PalindromePartitioning();
+    List<List<String>> setOfAllPalindromes = palidromePortioning.partition("aab");
     println("total palindromes \n" + setOfAllPalindromes);
     println("\n ---------------- \n");
 
@@ -765,6 +764,14 @@ void main() {
     MirrorTree mirrorTree = new MirrorTree();
     TreeNode symmetricTree = serializeDeserializeBinaryTree.deserialize("[1,2,2,3,4,4,3]");
     println("\nThe tree is symmetric :" + mirrorTree.isSymmetric(symmetricTree) + "\n");
+
+    MinimumSwapsDigitSum minimumSwapsDigitSum = new MinimumSwapsDigitSum();
+    int minSwaps=minimumSwapsDigitSum.minSwaps(new int[]{18,43,34,16});
+    println("\nminimum swaps required to sort the array based on the sum of their digits :" + minSwaps + "\n");
+
+    GroupAnagrams groupAnagrams = new GroupAnagrams();
+    List<List<String>> anagrams=groupAnagrams.groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
+    println("\nPrint after grouping the anagrams :" + anagrams + "\n");
 
 
 
