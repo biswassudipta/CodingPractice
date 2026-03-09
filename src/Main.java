@@ -773,6 +773,12 @@ void main() {
     List<List<String>> anagrams=groupAnagrams.groupAnagrams(new String[]{"eat","tea","tan","ate","nat","bat"});
     println("\nPrint after grouping the anagrams :" + anagrams + "\n");
 
+    TopKFrequentElements topKFrequentElements = new TopKFrequentElements();
+    int kValue=2;
+    int[] topKElements=topKFrequentElements.topKFrequent(new int[]{1,2,1,2,1,2,3,1,3,2},kValue);
+    println("\nTop " +kValue+" elements in the array :"+ Arrays.toString(topKElements) + "\n");
+
+
 
 
 }
