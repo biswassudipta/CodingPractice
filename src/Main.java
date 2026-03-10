@@ -778,6 +778,10 @@ void main() {
     int[] topKElements=topKFrequentElements.topKFrequent(new int[]{1,2,1,2,1,2,3,1,3,2},kValue);
     println("\nTop " +kValue+" elements in the array :"+ Arrays.toString(topKElements) + "\n");
 
+    BurstBalloons burstBalloons = new BurstBalloons();
+    int maxCoins=burstBalloons.maxCoins(new  int[]{3,1,5,8});
+    println("\nMaximum number of coins can be collected by bursting balloons :"+ maxCoins + "\n");
+
 
 
 
