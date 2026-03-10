@@ -782,6 +782,10 @@ void main() {
     int maxCoins=burstBalloons.maxCoins(new  int[]{3,1,5,8});
     println("\nMaximum number of coins can be collected by bursting balloons :"+ maxCoins + "\n");
 
+    MaxSubArraySum maxSubArraySumSolution = new MaxSubArraySum();
+    int maxSubArraySum=maxSubArraySumSolution.subarraySum(new int[]{1,1,1},2);
+    println("\nMaximum sub array sum :"+ maxSubArraySum + "\n");
+
 
 
 
