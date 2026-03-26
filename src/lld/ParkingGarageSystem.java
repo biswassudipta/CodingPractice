@@ -100,7 +100,7 @@ interface PricingStrategy {
 }
 
 /** @param msPerUnit  3_600_000 for production; 1 for simulation where 1 ms ≅ 1 hour */
-record HourlyPricingStrategy(double hourlyRate, long msPerUnit) implements PricingStrategy {
+record HourlyPricingStrategy(double hourlyRate, long msPerUnit) implements HotelPricingStrategy {
     @Override
     public double calculateFee(Ticket ticket) {
         long elapsed = System.currentTimeMillis() - ticket.entryTimeMs();
@@ -162,7 +162,7 @@ class ParkingGarage {
     public static ParkingGarage getInstance() { return Holder.INSTANCE; }
 
     private final List<Level>      levels;
-    private final PricingStrategy  pricingStrategy;
+    private final HotelPricingStrategy pricingStrategy;
     private final AtomicInteger    ticketCounter;
 
     private ParkingGarage() {

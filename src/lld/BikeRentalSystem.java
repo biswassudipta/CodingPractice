@@ -44,7 +44,7 @@ record User(String id, String name) {}
 
 // FIX: record — startTime passed in by caller so the record stays a pure value type.
 //      Removed unused startStationId (was stored but had no getter and was never read).
-record RentalTransaction(String transactionId, User user, Bike bike, long startTime) {}
+record RentalTransaction(String transactionId, Viewer user, Bike bike, long startTime) {}
 
 // ==========================================
 // Core Components (Thread-Safe)
@@ -112,7 +112,7 @@ class RentalSystemManager {
 
     public void addStation(Station station) { stations.put(station.getId(), station); }
 
-    public RentalTransaction rentBike(User user, String stationId) {
+    public RentalTransaction rentBike(Viewer user, String stationId) {
         Station station = stations.get(stationId);
         if (station == null) return null;
 
@@ -126,7 +126,7 @@ class RentalSystemManager {
         return txn;
     }
 
-    public void returnBike(User user, String destinationStationId) {
+    public void returnBike(Viewer user, String destinationStationId) {
         RentalTransaction txn = activeRentals.get(user.id());  // FIX: lookup by ID
         if (txn == null) {
             System.out.println("No active rental found for " + user.name());
@@ -175,7 +175,7 @@ public class BikeRentalSystem {
 
         // Alice rents from Times Square; tries to return to Central Park (full initially)
         Runnable user1 = () -> {
-            User alice = new User("U1", "Alice");
+            Viewer alice = new Viewer("U1", "Alice");
             system.rentBike(alice, "Station-TimesSquare");
             try {
                 Thread.sleep(2);
@@ -186,11 +186,11 @@ public class BikeRentalSystem {
         };
 
         // Bob rents from Central Park, freeing a slot for Alice
-        Runnable user2 = () -> system.rentBike(new User("U2", "Bob"), "Station-CentralPark");
+        Runnable user2 = () -> system.rentBike(new Viewer("U2", "Bob"), "Station-CentralPark");
 
         // Charlie and Diana race for the last bike at Times Square
-        Runnable user3 = () -> system.rentBike(new User("U3", "Charlie"), "Station-TimesSquare");
-        Runnable user4 = () -> system.rentBike(new User("U4", "Diana"),   "Station-TimesSquare");
+        Runnable user3 = () -> system.rentBike(new Viewer("U3", "Charlie"), "Station-TimesSquare");
+        Runnable user4 = () -> system.rentBike(new Viewer("U4", "Diana"),   "Station-TimesSquare");
 
         executor.submit(user1);
         executor.submit(user2);
