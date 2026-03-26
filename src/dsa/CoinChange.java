@@ -15,7 +15,8 @@ public class CoinChange {
         int len = coins.length;
         int[][] dp = new int[len + 1][amount + 1];
         dp[0][0] = 0;
-        Arrays.fill(dp[0], Integer.MAX_VALUE - 1);
+        int maxCoin=Integer.MAX_VALUE - 1;
+        Arrays.fill(dp[0], maxCoin- 1);
         for (int i = 1; i <= len; i++) {
             for (int j = 1; j <= amount; j++) {
                 if (j - coins[i - 1] >= 0) {
@@ -25,7 +26,7 @@ public class CoinChange {
                 }
             }
         }
-        return dp[len][amount] == Integer.MAX_VALUE - 1 ? -1 : dp[len][amount];
+        return dp[len][amount] ==maxCoin ? -1 : dp[len][amount];
 
     }
 
