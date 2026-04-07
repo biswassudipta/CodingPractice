@@ -3,6 +3,7 @@ package lld;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.StampedLock;
 
 record Order(String orderId, List<OrderItem> orderItems) {
 }
@@ -27,6 +28,7 @@ class InventoryManager {
 
 
     public boolean processOrder(Order order) {
+        StampedLock lock = new StampedLock();
         List<OrderItem> productList = order.orderItems();
         List<String> productIdList = new ArrayList<>();
         for (OrderItem orderItem : productList) {

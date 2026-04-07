@@ -48,13 +48,13 @@ class Show {
 
 class TicketBookingSystem {
     private Map<String, Show> shows = new ConcurrentHashMap<>();
-    private List<HotelBooking> hotelBookings = new CopyOnWriteArrayList<>();
+    private List<Booking> bookingHistory = new CopyOnWriteArrayList<>();
 
     public void addShow(Show show) {
         shows.put(show.getId(), show);
     }
 
-    public HotelBooking bookTicket(Viewer viewer, String showId, List<String> requestedSeatIds) {
+    public Booking bookTicket(Viewer viewer, String showId, List<String> requestedSeatIds) {
         Show show = shows.get(showId);
         if (show == null) return null;
 
@@ -76,8 +76,8 @@ class TicketBookingSystem {
             }
 
             String bookingId = UUID.randomUUID().toString().substring(0, 8);
-            HotelBooking booking = new HotelBooking(bookingId, viewer, show, requestedSeatIds);
-            hotelBookings.add(booking);
+            Booking booking = new Booking(bookingId, viewer, show, requestedSeatIds);
+            bookingHistory.add(booking);
 
             return booking;
 
@@ -100,13 +100,13 @@ public class BookMyShowApp {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
         Runnable task1 = () -> {
-            HotelBooking b = system.bookTicket(alice, "SHOW-1", Arrays.asList("A1", "A2"));
+        Booking b = system.bookTicket(alice, "SHOW-1", Arrays.asList("A1", "A2"));
             if (b != null) System.out.println("Alice booked successfully: " + b.id());
             else System.out.println("Alice booking failed.");
         };
 
         Runnable task2 = () -> {
-            HotelBooking b = system.bookTicket(bob, "SHOW-1", Arrays.asList("A2", "A3"));
+            Booking b = system.bookTicket(bob, "SHOW-1", Arrays.asList("A2", "A3"));
             if (b != null) System.out.println("Bob booked successfully: " + b.id());
             else System.out.println("Bob booking failed.");
         };
